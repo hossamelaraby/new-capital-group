@@ -79,8 +79,8 @@ export const Home: React.FC = () => {
     }
   ];
 
-  // Featured 6 products matching PDF requirements
-  const featuredProductSkus = ['NC-PPE-SH01', 'NC-PPE-GL03', 'NC-PPE-VT02', 'NC-SGN-PP06', 'NC-FIR-SN07', 'NC-UTL-TP04'];
+  // Featured 6 products matching PDF requirements with exact verified images
+  const featuredProductSkus = ['NC-PPE-SH01', 'NC-PPE-GL03', 'NC-PPE-VT02', 'NC-PPE-HN05', 'NC-FIR-EX06', 'NC-UTL-TP09'];
   const featuredProducts = products.filter(p => featuredProductSkus.includes(p.sku)).slice(0, 6);
 
   return (
@@ -472,7 +472,7 @@ export const Home: React.FC = () => {
             >
               <div className="h-56 overflow-hidden relative bg-[#F3F0E9]">
                 <img 
-                  src={prod.primaryImage.replace('/assets/', '/assets/').replace('.webp', '.webp')} 
+                  src={prod.primaryImage} 
                   alt={isAr ? prod.titleAr : prod.titleEn}
                   className="w-full h-full object-cover rounded-t-2xl hover:scale-105 transition-transform duration-500" 
                 />

@@ -60,7 +60,7 @@ export const About: React.FC = () => {
           <img
             src="/assets/17-industrial-safety-warehouse.webp"
             alt={isAr ? 'المخازن والجاهزية اللوجستية لمجموعة العاصمة الجديدة' : 'New Capital Group Warehouse & Staging Capacity'}
-            className="w-full h-80 object-cover rounded-xl"
+            className="w-full aspect-[16/10] object-cover rounded-xl"
           />
         </div>
       </div>

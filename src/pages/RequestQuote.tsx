@@ -383,9 +383,9 @@ export const RequestQuote: React.FC = () => {
                   >
                     <div className="flex items-center gap-3">
                       <img 
-                        src={item.product.primaryImage.replace('/assets/', '/newcapital_assets/').replace('.webp', '.png')} 
+                        src={item.product.primaryImage} 
                         alt="item" 
-                        className="w-10 h-10 object-cover rounded-lg border border-[#DCD3C5]" 
+                        className="w-11 h-11 object-cover rounded-xl border border-[#DCD3C5]" 
                       />
                       <div>
                         <span className="font-bold text-[#123D40] block">

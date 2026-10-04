@@ -35,8 +35,8 @@ interface DataContextType {
 
 const DataContext = createContext<DataContextType | undefined>(undefined);
 
-// Storage key version v3 ensures users immediately see the corrected images
-const V_KEY = 'nc_v3_';
+// Storage key version v5 ensures all clients immediately see the fresh new assets and 14 verified products
+const V_KEY = 'nc_v5_';
 
 export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [lang, setLangState] = useState<Language>(() => {

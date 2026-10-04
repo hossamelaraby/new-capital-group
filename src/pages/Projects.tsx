@@ -1,26 +1,29 @@
 import React from 'react';
 import { useData } from '../context/DataContext';
-import { Building2, MapPin, CheckCircle, ExternalLink } from 'lucide-react';
+import { MapPin, Shield, CheckCircle, AlertCircle, ArrowRight, ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export const Projects: React.FC = () => {
   const { lang, projects } = useData();
   const isAr = lang === 'ar';
+  const Arrow = isAr ? ArrowLeft : ArrowRight;
 
   const visibleProjects = projects.filter(p => p.publicDisplay);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 space-y-12">
-      <div className="space-y-3 border-b border-[#D5C9B5]/15 pb-6">
-        <span className="text-xs font-mono uppercase text-[#B8643F]">
-          {isAr ? 'سجل المراجع الهندسية والمشروعات' : 'Engineering References & Field Context'}
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 space-y-12 bg-[#F3F0E9] text-[#1F292C]">
+      {/* Header */}
+      <div className="space-y-3 border-b border-[#DCD3C5] pb-6">
+        <span className="text-xs font-mono uppercase text-[#B96543] font-bold">
+          {isAr ? 'سجل المراجع والقطاعات الهندسية' : 'Engineering Sector References'}
         </span>
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-white">
-          {isAr ? 'بيئات المشروعات ومجالات التوريد المعمول بها' : 'Project References & Application Environments'}
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-[#123D40]">
+          {isAr ? 'مشروعات وقطاعات التوريد المستهدفة' : 'Project Sourcing References & Industrial Sectors'}
         </h1>
-        <p className="text-sm text-[#D5C9B5]/85 max-w-3xl leading-relaxed">
+        <p className="text-sm text-[#687174] max-w-3xl leading-relaxed">
           {isAr
-            ? 'تستعرض هذه الصفحة بيئات المشروعات الكبرى في جمهورية مصر العربية التي صُممت منتجاتنا لتلبية اشتراطاتها الفنية وفق كود السلامة ومواصفات الجهات المالكة والاستشارية.'
-            : 'Major Egyptian project environments where our product lines are specified and referenced to meet consultant and contractor safety criteria.'
+            ? 'سجل قطاعات المشروعات الكبرى التي تتوافق معها بنود ومواصفات توريد مجموعة العاصمة الجديدة من مهمات السلامة والأشرطة التحذيرية ولوحات المواقع.'
+            : 'Sector register representing target civil and industrial project environments aligned with New Capital general safety supply capabilities.'
           }
         </p>
       </div>
@@ -29,63 +32,62 @@ export const Projects: React.FC = () => {
         {visibleProjects.map(proj => (
           <div
             key={proj.id}
-            className="rounded-xl bg-[#12202A] border border-[#D5C9B5]/20 overflow-hidden shadow-lg flex flex-col justify-between"
+            className="rounded-2xl bg-[#FBFAF6] border border-[#DCD3C5] overflow-hidden shadow-sm flex flex-col justify-between hover:border-[#123D40] transition-colors"
           >
             {proj.image && (
-              <div className="h-44 overflow-hidden relative">
+              <div className="h-48 overflow-hidden relative bg-[#F3F0E9]">
                 <img
                   src={proj.image}
                   alt={isAr ? proj.titleAr : proj.titleEn}
-                  className="w-full h-full object-cover brightness-90 hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover rounded-t-2xl hover:scale-105 transition-transform duration-500"
                 />
-                <span className="absolute top-2 right-2 px-2 py-0.5 rounded bg-[#0B1720]/80 text-[10px] font-mono text-[#E5A72B] border border-[#D5C9B5]/20">
+                <span className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-[#FBFAF6]/90 text-[10px] font-mono text-[#123D40] font-bold border border-[#DCD3C5]">
                   {proj.sectorEn}
                 </span>
-                <span className="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-[#1D3440]/90 text-[10px] font-mono text-amber-300">
+                <span className="absolute bottom-3 left-3 px-2.5 py-1 rounded-full bg-[#123D40]/90 text-[10px] font-mono text-white font-bold">
                   {isAr ? 'مرجع هندسي' : 'Reference Only'}
                 </span>
               </div>
             )}
 
-            <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
+            <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
               <div className="space-y-2">
-                <h3 className="text-base font-bold text-white">
+                <h3 className="text-base font-bold text-[#123D40]">
                   {isAr ? proj.titleAr : proj.titleEn}
                 </h3>
-                <div className="flex items-center gap-1.5 text-xs text-[#D5C9B5]/70">
-                  <MapPin className="w-3.5 h-3.5 text-[#B8643F] shrink-0" />
+                <div className="flex items-center gap-1.5 text-xs text-[#687174]">
+                  <MapPin className="w-3.5 h-3.5 text-[#B96543] shrink-0" />
                   <span>{isAr ? proj.locationAr : proj.locationEn}</span>
                 </div>
-                <p className="text-xs text-[#D5C9B5]/80 leading-relaxed pt-1">
+                <p className="text-xs text-[#687174] leading-relaxed pt-1">
                   {isAr ? proj.descriptionAr : proj.descriptionEn}
                 </p>
               </div>
 
-              <div className="pt-3 border-t border-[#D5C9B5]/10 space-y-1.5 text-xs">
-                <span className="font-semibold text-white block">
+              <div className="pt-3 border-t border-[#DCD3C5] space-y-2 text-xs">
+                <span className="font-bold text-[#123D40] block">
                   {isAr ? 'نطاق بنود التوريد المتوافقة:' : 'Applicable Supply Scope:'}
                 </span>
-                <p className="text-[#D5C9B5]/80 leading-relaxed font-mono text-[11px]">
+                <p className="text-[#687174] leading-relaxed font-mono text-[11px] bg-[#F3F0E9] p-2.5 rounded-xl border border-[#DCD3C5]">
                   {isAr ? proj.scopeAr : proj.scopeEn}
                 </p>
+
+                <div className="pt-2 flex items-center justify-between">
+                  <span className="text-[10px] text-[#687174] font-mono">
+                    {isAr ? 'تصنيف: مرجع قطاعي' : 'Status: Sector Reference'}
+                  </span>
+                  <Link
+                    to="/request-a-quote"
+                    className="text-xs font-bold text-[#B96543] hover:text-[#a55636] flex items-center gap-1 transition-colors"
+                  >
+                    <span>{isAr ? 'طلب خطة توريد' : 'Supply Plan'}</span>
+                    <Arrow className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
         ))}
-      </div>
-
-      {/* Provenance and Legal Disclaimer for Project Claims */}
-      <div className="p-5 rounded-xl bg-[#0B1720] border border-[#D5C9B5]/15 text-xs text-[#D5C9B5]/75 space-y-2">
-        <div className="flex items-center gap-2 text-[#E5A72B] font-bold">
-          <CheckCircle className="w-4 h-4" />
-          <span>{isAr ? 'قواعد دقة التوثيق والمراجع الهندسية:' : 'Content Provenance & Verification Standards:'}</span>
-        </div>
-        <p className="leading-relaxed">
-          {isAr
-            ? 'تُدرج أسماء المشروعات في هذا القسم كأمثلة تطبيقية ونماذج للبيئات والمواصفات المعمول بها في كود البناء والمرافق المصري، ولا يمثل ذكر أي مشروع بمفرده ادعاءً بالاحتكار أو التنفيذ المباشر إلا وفق تعاقدات التوريد المعتمدة وسجلات أوامر الإسناد الرسمية المسجلة لدى الشركة.'
-            : 'Project names and references are cataloged to showcase the operational and technical environments our products are engineered for. Actual site supply orders are governed by formal submittals and contracts on record.'
-          }
-        </p>
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { DataProvider } from './context/DataContext';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
+import { ScrollToTop } from './components/ScrollToTop';
 
 // Pages
 import { Home } from './pages/Home';
@@ -21,7 +22,8 @@ export const App: React.FC = () => {
   return (
     <DataProvider>
       <BrowserRouter>
-        <div className="min-h-screen flex flex-col bg-[#0B1720] text-[#F4F1EA]">
+        <ScrollToTop />
+        <div className="min-h-screen flex flex-col bg-[#F3F0E9] text-[#1F292C]">
           <Header />
           <main className="flex-1">
             <Routes>

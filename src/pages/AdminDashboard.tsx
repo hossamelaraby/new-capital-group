@@ -315,13 +315,13 @@ export const AdminDashboard: React.FC = () => {
               return (
                 <div
                   key={cat.id}
-                  className="rounded-xl bg-[#12202A] border border-[#D5C9B5]/20 overflow-hidden shadow-lg flex flex-col justify-between"
+                  className="rounded-2xl bg-[#12202A] border border-[#D5C9B5]/20 overflow-hidden shadow-lg flex flex-col justify-between"
                 >
                   <div className="h-40 overflow-hidden relative bg-[#0B1720]">
                     <img
                       src={cat.image}
                       alt={cat.nameAr}
-                      className="w-full h-full object-cover brightness-85"
+                      className="w-full h-full object-cover brightness-85 rounded-t-2xl"
                     />
                     <span className="absolute top-2 right-2 px-2 py-0.5 rounded bg-[#0B1720]/80 text-[10px] font-mono text-[#E5A72B] border border-[#D5C9B5]/20">
                       {cat.slug}
@@ -488,7 +488,7 @@ export const AdminDashboard: React.FC = () => {
                       <img
                         src={p.primaryImage}
                         alt="prod"
-                        className="w-12 h-12 object-cover rounded border border-[#D5C9B5]/20 bg-[#0B1720]"
+                        className="w-12 h-12 object-cover rounded-xl border border-[#D5C9B5]/20 bg-[#0B1720]"
                       />
                     </td>
                     <td className="p-3 font-mono text-[#E5A72B]">{p.sku}</td>

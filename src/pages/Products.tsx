@@ -162,7 +162,7 @@ export const Products: React.FC = () => {
               {/* Product Visual */}
               <div className="h-52 overflow-hidden relative bg-[#F3F0E9]">
                 <img
-                  src={prod.primaryImage.replace('/assets/', '/assets/').replace('.webp', '.webp')}
+                  src={prod.primaryImage}
                   alt={isAr ? prod.titleAr : prod.titleEn}
                   className="w-full h-full object-cover rounded-t-2xl hover:scale-105 transition-transform duration-500"
                 />

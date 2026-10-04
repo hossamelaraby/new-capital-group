@@ -34,7 +34,7 @@ export const ProductDetail: React.FC = () => {
     setTimeout(() => setAddedNotice(false), 3000);
   };
 
-  const currentDisplayImage = (activeImage || product.primaryImage).replace('/assets/', '/assets/').replace('.webp', '.webp');
+  const currentDisplayImage = activeImage || product.primaryImage;
   const allImages = [product.primaryImage, ...product.galleryImages];
 
   return (
@@ -73,20 +73,17 @@ export const ProductDetail: React.FC = () => {
           {/* Thumbnails */}
           {allImages.length > 1 && (
             <div className="flex gap-3 overflow-x-auto pb-2">
-              {allImages.map((img, idx) => {
-                const thumbSrc = img.replace('/assets/', '/assets/').replace('.webp', '.webp');
-                return (
-                  <button
-                    key={idx}
-                    onClick={() => setActiveImage(img)}
+              {allImages.map((img, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveImage(img)}
                     className={`w-20 h-20 rounded-xl overflow-hidden border transition-all shrink-0 ${
                       (activeImage === img || (!activeImage && idx === 0)) ? 'border-[#B96543] ring-2 ring-[#B96543]/20' : 'border-[#DCD3C5] hover:border-[#123D40]'
                     }`}
                   >
-                    <img src={thumbSrc} alt="thumbnail" className="w-full h-full object-cover rounded-lg" />
+                    <img src={img} alt="thumbnail" className="w-full h-full object-cover rounded-xl" />
                   </button>
-                );
-              })}
+                ))}
             </div>
           )}
 

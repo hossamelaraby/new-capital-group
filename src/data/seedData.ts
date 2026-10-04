@@ -38,7 +38,8 @@ export const initialCategories: Category[] = [
       { slug: 'footwear', nameAr: 'أحذية السلامة المهنية S1/S3', nameEn: 'Safety Footwear S1/S3' },
       { slug: 'vests', nameAr: 'سترات السلامة العاكسة الفوسفورية', nameEn: 'Hi-Vis Reflective Vests' },
       { slug: 'gloves', nameAr: 'قفازات الحماية الميكانيكية والقطع', nameEn: 'Work & Protective Gloves' },
-      { slug: 'head-eye', nameAr: 'خوذات الرأس وحماية الأعين والوجه', nameEn: 'Helmets & Eye Protection' }
+      { slug: 'head-eye', nameAr: 'خوذات الرأس وحماية الأعين والوجه', nameEn: 'Helmets & Eye Protection' },
+      { slug: 'harness', nameAr: 'أحزمة الأمان والعمل على الارتفاعات', nameEn: 'Fall Arrest & Safety Harnesses' }
     ]
   },
   {
@@ -125,7 +126,7 @@ export const initialCategories: Category[] = [
 ];
 
 export const initialProducts: Product[] = [
-  // 1. أحذية السلامة المهنية
+  // 1. أحذية السلامة المهنية S3
   {
     id: 'prod-01',
     sku: 'NC-PPE-SH01',
@@ -138,8 +139,8 @@ export const initialProducts: Product[] = [
     categorySlug: 'ppe',
     subcategorySlug: 'footwear',
     tag: 'C-ZAR • PPE FOOTWEAR',
-    primaryImage: '/assets/06-safety-footwear-product.webp', // EXACT MATCH: safety-footwear.jpg
-    galleryImages: ['/assets/02-category-ppe.webp'],
+    primaryImage: '/assets/06-safety-footwear-product.webp',
+    galleryImages: [],
     imageAltAr: 'حذاء سلامة صناعي عالي التحمل للمهندسين والعمال',
     imageAltEn: 'Heavy duty safety footwear for industrial site',
     sourceType: 'company',
@@ -180,8 +181,8 @@ export const initialProducts: Product[] = [
     categorySlug: 'ppe',
     subcategorySlug: 'vests',
     tag: 'HIGH-VISIBILITY APPAREL',
-    primaryImage: '/assets/08-reflective-vest-product.webp', // EXACT MATCH: reflective-vest.jpg
-    galleryImages: ['/assets/02-category-ppe.webp'],
+    primaryImage: '/assets/08-reflective-vest-product.webp',
+    galleryImages: [],
     imageAltAr: 'سترة سلامة عاكسة فوسفورية لمواقع الطرق والإنشاءات',
     imageAltEn: 'Neon reflective high visibility safety vest',
     sourceType: 'company',
@@ -208,7 +209,7 @@ export const initialProducts: Product[] = [
     updatedAt: '2026-03-25T12:00:00Z'
   },
 
-  // 3. قفازات الحماية
+  // 3. قفازات الحماية الميكانيكية
   {
     id: 'prod-03',
     sku: 'NC-PPE-GL03',
@@ -221,8 +222,8 @@ export const initialProducts: Product[] = [
     categorySlug: 'ppe',
     subcategorySlug: 'gloves',
     tag: 'HAND PROTECTION',
-    primaryImage: '/assets/07-protective-gloves-product.webp', // EXACT MATCH: safety-gloves.jpg
-    galleryImages: ['/assets/09-hard-hat-eye-protection.webp'],
+    primaryImage: '/assets/07-protective-gloves-product.webp',
+    galleryImages: [],
     imageAltAr: 'قفازات سلامة صناعية لمناولة المواد الإنشائية',
     imageAltEn: 'Reinforced industrial handling gloves',
     sourceType: 'company',
@@ -249,12 +250,210 @@ export const initialProducts: Product[] = [
     updatedAt: '2026-03-25T12:00:00Z'
   },
 
-  // 4. أشرطة تحذيرية مدفونة قابلة للكشف
+  // 4. خوذات الرأس وحماية الأعين
   {
     id: 'prod-04',
-    sku: 'NC-UTL-TP04',
+    sku: 'NC-PPE-HE04',
+    titleAr: 'خوذات حماية الرأس ونظارات الأمان الصناعية EN 397',
+    titleEn: 'Industrial Hard Hats & Eye Protection EN 397 / EN 166',
+    shortDescAr: 'خوذات سلامة مهنية عالية المتانة مزودة ببطانة داخلية ماصة للصدمات ونظارات أمان بانورامية ضد الشظايا وتطاير الأجسام.',
+    shortDescEn: 'Impact-resistant industrial hard hats with 6-point suspension harness and optical safety eyewear.',
+    longDescAr: 'حماية متكاملة للرأس والوجه للعمل في بيئات المشروعات المعقدة. خوذات مصنعة من بولي إيثيلين عالي الكثافة (HDPE) أو ABS المقاوم للصدمات المباشرة والعزل الكهربائي حتى 440 فولت، متوافقة مع نظارات سلامة شفافة ومعتمة مضادة للخدش والضباب لحماية العين في مواقع الحفر والتقطيع.',
+    longDescEn: 'Engineered for complete head and ocular defense. Features adjustable ratchet wheel, ventilation vents, and certified UV & ballistic particle protection.',
+    categorySlug: 'ppe',
+    subcategorySlug: 'head-eye',
+    tag: 'HEAD & EYE PROTECTION',
+    primaryImage: '/assets/09-hard-hat-eye-protection.webp',
+    galleryImages: [],
+    imageAltAr: 'خوذات أمان بيضاء ونظارات حماية صناعية للمهندسين',
+    imageAltEn: 'White safety hard hat and industrial goggles',
+    sourceType: 'company',
+    verificationStatus: 'verified',
+    availability: 'available',
+    brand: 'New Capital Shield',
+    materialAr: 'بلاستيك هندسي ABS عالي الكثافة / عدسات بولي كربونات مقاومة للصدمات',
+    materialEn: 'High-density ABS shell / Polycarbonate anti-impact lenses',
+    standards: [
+      { name: 'EN 397 Industrial Safety Helmets', verified: true },
+      { name: 'EN 166 Personal Eye-Protection Standards', verified: true }
+    ],
+    specifications: [
+      { keyAr: 'العزل الكهربائي', keyEn: 'Electrical Insulation', valueAr: 'عازل حتى 440 فولت تيار متردد', valueEn: '440V AC electrical insulation' },
+      { keyAr: 'نظام التثبيت', keyEn: 'Harness Suspension', valueAr: 'نظام تعليق داخلي بـ 6 نقاط مع بكرة ضبط المقاس', valueEn: '6-point textile suspension with ratchet knob' },
+      { keyAr: 'الألوان المتاحة', keyEn: 'Colors', valueAr: 'أبيض (مهندسين)، أصفر (فنيين)، أزرق، برتقالي', valueEn: 'White, Yellow, Blue, Orange' }
+    ],
+    applicationsAr: ['مواقع التشييد والبناء الشاهقة', 'أعمال الحفر والرافعات والتحميل', 'محطات الطاقة ومصانع البتروكيماويات'],
+    applicationsEn: ['High-rise construction sites', 'Crane lifting zones', 'Power plants & petrochemical refineries'],
+    quoteEnabled: true,
+    published: true,
+    createdAt: '2026-01-10T08:00:00Z',
+    updatedAt: '2026-03-25T12:00:00Z'
+  },
+
+  // 5. أحزمة الأمان والعمل على الارتفاعات
+  {
+    id: 'prod-05',
+    sku: 'NC-PPE-HN05',
+    titleAr: 'أحزمة الأمان والعمل على الارتفاعات ومهمات منع السقوط',
+    titleEn: 'Full Body Fall Arrest Harness & Shock Absorbing Lanyard',
+    shortDescAr: 'أحزمة أمان جسدية كاملة بحلقات فولاذية D-Ring مزدوجة وحبال امتصاص الصدمات معتمدة طبقا لمعايير EN 361.',
+    shortDescEn: 'Heavy-duty full body safety harness with twin lanyards, energy absorber and scaffold hooks.',
+    longDescAr: 'مهمات متكاملة للعمل الآمن على السقالات والارتفاعات والأبراج المعدنية. تصنع الأحزمة من ألياف بوليستر عالية الشد مع خياطة مدعمة ونقاط تثبيت فولاذية متعددة، ومزودة بحبل مزدوج لامتصاص طاقة السقوط وخطافات كبيرة سريعة القفل تضمن سلامة الفني في كل حركة.',
+    longDescEn: 'Certified fall protection systems adhering to EN 361 and EN 355. Designed for maximum ergonomic comfort with padded leg straps and breathable back support.',
+    categorySlug: 'ppe',
+    subcategorySlug: 'harness',
+    tag: 'FALL PROTECTION HARNESS',
+    primaryImage: '/assets/product-safety-harness.webp',
+    galleryImages: [],
+    imageAltAr: 'مهندس يرتدي حزام أمان كامل مع حبال مانعة للسقوط على سقالة',
+    imageAltEn: 'Full body safety harness worn by industrial site worker',
+    sourceType: 'company',
+    verificationStatus: 'verified',
+    availability: 'available',
+    brand: 'New Capital SafeClimb',
+    materialAr: 'ألياف بوليستر عالية القوة بعرض 45 مم / حلقات فولاذية مطلية ضد الصدأ',
+    materialEn: '45mm High-tenacity polyester webbing / Forged alloy steel hardware',
+    standards: [
+      { name: 'EN 361 Full Body Harnesses Specification', verified: true },
+      { name: 'EN 355 Energy Absorbers & Shock Lanyards', verified: true }
+    ],
+    specifications: [
+      { keyAr: 'قوة الكسر والشد', keyEn: 'Breaking Strength', valueAr: 'أكثر من 22 كيلو نيوتن (22 kN)', valueEn: 'Over 22 kN breaking force' },
+      { keyAr: 'نوع الحبل', keyEn: 'Lanyard Type', valueAr: 'حبل مطاطي مزدوج ممتص للصدمات مع مشابك سقالات', valueEn: 'Twin elastic lanyard with scaffold snap hooks' },
+      { keyAr: 'الوزن الأقصى للمستخدم', keyEn: 'Capacity', valueAr: 'حتى 140 كجم مع المعدات', valueEn: 'Rated up to 140 kg user mass' }
+    ],
+    applicationsAr: ['أعمال السقالات وتركيب الهياكل المعدنية', 'أبراج الاتصالات وخطوط الضغط العالي', 'صيانة الواجهات والمنصات المرتفعة'],
+    applicationsEn: ['Scaffolding & structural steel erection', 'Telecom & transmission towers', 'Facade maintenance & elevated platforms'],
+    quoteEnabled: true,
+    published: true,
+    createdAt: '2026-01-10T08:00:00Z',
+    updatedAt: '2026-03-25T12:00:00Z'
+  },
+
+  // 6. طفايات ومعدات الحريق
+  {
+    id: 'prod-06',
+    sku: 'NC-FIR-EX06',
+    titleAr: 'أجهزة وطفايات مكافحة الحريق الميدانية وخزائن الإطفاء',
+    titleEn: 'Industrial Fire Extinguishers & Fire Hose Station Equipment',
+    shortDescAr: 'طفايات حريق بودرة كيميائية جافة وثاني أكسيد الكربون وخزائن إطفاء مجهزة بخراطيم مطابقة لكود الدفاع المدني.',
+    shortDescEn: 'Certified dry chemical powder, CO2 extinguishers, and complete worksite fire cabinet stations.',
+    longDescAr: 'منظومات إطفاء حريق ميدانية موثقة لتأمين المنشآت الإدارية ومستودعات المواد القابلة للاشتعال ومواقع المشروعات. تشمل طفايات بودرة جافة (ABC) بأحجام من 6 كجم حتى 50 كجم للمعدات المتنقلة، وطفايات CO2 للوحات الكهربائية، مع إمكانية توفير صناديق حريق حديدية معالجة ضد العوامل الجوية.',
+    longDescEn: 'Comprehensive first-response firefighting gear aligned with Egyptian Civil Defense and NFPA regulations. Pressure tested with heavy-gauge brass valves and pressure gauges.',
+    categorySlug: 'fire-safety',
+    subcategorySlug: 'fire-supplies',
+    tag: 'FIREFIGHTING EQUIPMENT',
+    primaryImage: '/assets/product-fire-equipment.webp',
+    galleryImages: ['/assets/10-fire-extinguisher-product.webp'],
+    imageAltAr: 'طفايات حريق صناعية حمراء وخزانة إطفاء بمحطة الموقع',
+    imageAltEn: 'Industrial fire extinguishers and fire hose cabinet',
+    sourceType: 'company',
+    verificationStatus: 'verified',
+    availability: 'available',
+    brand: 'Approved Egyptian Standard Spec',
+    materialAr: 'صلب مسحوب عالي التحمل / صمامات نحاسية / دهان إلكتروستاتيك أحمر',
+    materialEn: 'Deep-drawn steel cylinder / Forged brass valve / Red powder coating',
+    standards: [
+      { name: 'Egyptian Civil Defense Fire Code Compliance', verified: true },
+      { name: 'EN 3 Portable Fire Extinguishers Standard', verified: true }
+    ],
+    specifications: [
+      { keyAr: 'السعات المتوفرة', keyEn: 'Capacities', valueAr: '6 كجم، 9 كجم، 12 كجم، و50 كجم على عجلات', valueEn: '6kg, 9kg, 12kg hand-held & 50kg wheeled' },
+      { keyAr: 'نوع وسيط الإطفاء', keyEn: 'Extinguishing Agent', valueAr: 'بودرة جافة متعددة الأغراض ABC أو غاز CO2', valueEn: 'Multi-purpose ABC Dry Chemical or CO2' },
+      { keyAr: 'ضغط التشغيل', keyEn: 'Working Pressure', valueAr: '14 بار مع مؤشر ضغط فوسفوري', valueEn: '14 bar with calibrated pressure gauge' }
+    ],
+    applicationsAr: ['المستودعات ومخازن الوقود والمواد القابلة للاشتعال', 'غرف المولدات ومحطات الكهرباء', 'المباني والمكاتب الإدارية بالمشروعات'],
+    applicationsEn: ['Storage depots & fuel stores', 'Generator & electrical switchgear rooms', 'Project admin offices'],
+    quoteEnabled: true,
+    published: true,
+    createdAt: '2026-01-10T08:00:00Z',
+    updatedAt: '2026-03-25T12:00:00Z'
+  },
+
+  // 7. لوحات ومستلزمات مكافحة الحريق
+  {
+    id: 'prod-07',
+    sku: 'NC-FIR-SN07',
+    titleAr: 'لوحات ومستلزمات مكافحة الحريق الفوسفورية (Fire Safety)',
+    titleEn: 'Photoluminescent Fire Safety Signs & Accessories',
+    shortDescAr: 'لوحات تحديد مواقع طفايات الحريق وخراطيم الإطفاء المضيئة ذاتياً في الظلام عند انقطاع الكهرباء وتصاعد الدخان.',
+    shortDescEn: 'Glow-in-the-dark fire equipment markers complying with DIN 67510 and ISO 7010.',
+    longDescAr: 'علامات ولوحات تحديد معدات الإطفاء مصنعة من مواد فوسفورية متطورة تختزن الضوء وتتوهج تلقائياً لساعات طويلة في حال انقطاع التيار الكهربائي أو تصاعد الدخان، مما يرشد فرق الإطفاء والعمال فوراً إلى وسائل مكافحة الحريق ومخارج النجاة.',
+    longDescEn: 'Critical life-safety indicators aligning with NFPA 170 and DIN 67510 standards. Zero power consumption ensures perpetual reliability during building blackout crises.',
+    categorySlug: 'fire-safety',
+    subcategorySlug: 'fire-signs',
+    tag: 'PHOTOLUMINESCENT SIGNS',
+    primaryImage: '/assets/11-fire-safety-signage.webp',
+    galleryImages: [],
+    imageAltAr: 'لوحات إرشادية فوسفورية لمعدات الإطفاء ومخارج الطوارئ',
+    imageAltEn: 'Photoluminescent fire equipment locator sign',
+    sourceType: 'company',
+    verificationStatus: 'verified',
+    availability: 'available',
+    brand: 'New Capital Fire Division',
+    materialAr: 'بوليمر فوسفوري مشع ذاتي الإطفاء / ألومنيوم مركب',
+    materialEn: 'Self-extinguishing photoluminescent polymer / Aluminum backing',
+    standards: [
+      { name: 'DIN 67510 Luminescence Specification', verified: true, documentRef: 'datasheets/fire-signs-datasheet.pdf' },
+      { name: 'NFPA 170 Standard for Fire Safety Symbols', verified: true }
+    ],
+    specifications: [
+      { keyAr: 'مدة التوهج في الظلام', keyEn: 'Glow Duration', valueAr: 'توهج يستمر حتى 6 إلى 8 ساعات بعد انقطاع الضوء', valueEn: 'Luminescent afterglow up to 8 hours' },
+      { keyAr: 'المقاسات المتاحة', keyEn: 'Dimensions', valueAr: '15×15 سم، 20×20 سم، 20×40 سم، 30×30 سم', valueEn: '15x15cm, 20x20cm, 20x40cm, 30x30cm' }
+    ],
+    applicationsAr: ['غرف المولدات ومحولات الضغط العالي', 'المباني الإدارية بالمشروعات والكمبوندات', 'المستودعات والأنفاق'],
+    applicationsEn: ['Substations & generator rooms', 'Administrative site compounds', 'Depots & transit corridors'],
+    datasheetUrl: '/datasheets/fire-signs-datasheet.pdf',
+    quoteEnabled: true,
+    published: true,
+    createdAt: '2026-01-10T08:00:00Z',
+    updatedAt: '2026-03-25T12:00:00Z'
+  },
+
+  // 8. لوحات مخارج الطوارئ ومسارات الهروب
+  {
+    id: 'prod-08',
+    sku: 'NC-FIR-EV08',
+    titleAr: 'لوحات مخارج الطوارئ ومسارات الهروب (Emergency Evacuation)',
+    titleEn: 'Emergency Exit & Evacuation Route Signboards',
+    shortDescAr: 'علامات ولوحات إرشادية خضراء معيارية لتوجيه الأفراد نحو مخارج النجاة ونقاط التجمع الآمنة عند الطوارئ.',
+    shortDescEn: 'Green directional wayfinding signs marking emergency escape routes and muster points.',
+    longDescAr: 'لوحات مسارات الهروب المعيارية طبقا لكود الدفاع المدني، مصنعة على ألواح خفيفة ومتينة بألوان خضراء فسفورية أو عاكسة، توجه العمال والزوار بدقة نحو أقرب سلم طوارئ أو مخرج نجاة أو نقطة تجمع آمنة في الموقع.',
+    longDescEn: 'Essential safety wayfinding boards ensuring rapid building and site evacuation during fire or emergency incidents.',
+    categorySlug: 'fire-safety',
+    subcategorySlug: 'evacuation-fire',
+    tag: 'EVACUATION WAYFINDING',
+    primaryImage: '/assets/12-emergency-exit-signage.webp',
+    galleryImages: [],
+    imageAltAr: 'لوحات مخارج الطوارئ ومسارات الهروب الخضراء',
+    imageAltEn: 'Green emergency exit route sign',
+    sourceType: 'company',
+    verificationStatus: 'verified',
+    availability: 'available',
+    brand: 'New Capital Signage Division',
+    materialAr: 'PVC صلب فوسفوري ذاتي الإضاءة أو ألومنيوم عاكس',
+    materialEn: 'Photoluminescent rigid PVC or reflective aluminum',
+    standards: [
+      { name: 'ISO 7010 Safe Condition Symbols (E-Series)', verified: true }
+    ],
+    specifications: [
+      { keyAr: 'المقاسات المتاحة', keyEn: 'Dimensions', valueAr: '15×30 سم، 20×40 سم، 30×60 سم', valueEn: '15x30cm, 20x40cm, 30x60cm' },
+      { keyAr: 'الوضوح البصري', keyEn: 'Visibility', valueAr: 'رؤية واضحة حتى مسافة 25 متراً في الممرات', valueEn: 'Visible up to 25m in hallways' }
+    ],
+    applicationsAr: ['ممرات ومخارج مباني المشروعات الإدارية', 'محطات المترو والأنفاق والمطارات', 'المستودعات والورش المغلقة'],
+    applicationsEn: ['Administrative site buildings', 'Metro stations & tunnels', 'Warehouses and enclosed workshops'],
+    quoteEnabled: true,
+    published: true,
+    createdAt: '2026-01-10T08:00:00Z',
+    updatedAt: '2026-03-25T12:00:00Z'
+  },
+
+  // 9. أشرطة تحذيرية مدفونة قابلة للكشف
+  {
+    id: 'prod-09',
+    sku: 'NC-UTL-TP09',
     titleAr: 'أشرطة تحذيرية مدفونة قابلة للكشف (Detectable Warning Tape)',
-    titleEn: 'Detectable Subterranean Warning Tape',
+    titleEn: 'Detectable Subterranean Warning Tape with Foil Core',
     shortDescAr: 'شريط تحذيري تحت الأرض برقائق ألومنيوم مدمجة لتحديد مسارات كابلات الكهرباء وأنابيب الغاز والمياه بواسطة أجهزة الكشف.',
     shortDescEn: 'Underground warning tape with continuous aluminum foil core for early excavator locator detection.',
     longDescAr: 'شريط بولي إيثيلين مدفون مصمم خصيصاً للتمديدات والمرافق التحتية ليوفر إنذاراً مبكراً مزدوجاً: إنذار مرئي بألوان قياسية وكتابات تحذيرية غير قابلة للمحو، وإنذار كهرومغناطيسي تكتشفه أجهزة تتبع مسارات الكابلات والأنابيب السطحية قبل بدء الحفر بالمعدات الثقيلة، مما يحمي الشبكات من التلف والانقطاع.',
@@ -262,10 +461,10 @@ export const initialProducts: Product[] = [
     categorySlug: 'traffic-utilities',
     subcategorySlug: 'warning-tape',
     tag: 'UTILITY INFRASTRUCTURE',
-    primaryImage: '/assets/13-detectable-warning-tape.webp', // EXACT MATCH: warning-tapes.jpg
-    galleryImages: ['/assets/14-traffic-cones-barriers.webp'],
+    primaryImage: '/assets/product-warning-tape.webp',
+    galleryImages: ['/assets/13-detectable-warning-tape.webp'],
     imageAltAr: 'لفات أشرطة تحذيرية مدفونة قابلة للكشف لكابلات الكهرباء والمياه',
-    imageAltEn: 'Rolls of detectable warning tape for underground cables',
+    imageAltEn: 'Rolls of detectable warning tape for underground utilities',
     sourceType: 'company',
     verificationStatus: 'verified',
     availability: 'available',
@@ -291,40 +490,77 @@ export const initialProducts: Product[] = [
     updatedAt: '2026-03-25T12:00:00Z'
   },
 
-  // 5. لوحات المنع والتحذير من المخاطر
+  // 10. أقماع وحواجز ومحددات المسار المرورية
   {
-    id: 'prod-05',
-    sku: 'NC-SGN-PW05',
-    titleAr: 'لوحات المنع والتحذير من المخاطر الصناعية ISO 7010',
-    titleEn: 'Prohibition & Hazard Warning Signage ISO 7010',
-    shortDescAr: 'لوحات إرشادية وتحذيرية من الألومنيوم والـ PVC المقاوم للشمس والأمطار لتنبيه العاملين من المخاطر وحظر التصرفات غير الآمنة.',
-    shortDescEn: 'Rigid outdoor-rated warning and prohibition signboards engineered for harsh jobsites and substations.',
-    longDescAr: 'منظومة متكاملة من لوحات السلامة الميدانية المصنعة على ألواح ألومنيوم مصفح (ديبوند) أو PVC صلب بأحبار مقاومة للأشعة فوق البنفسجية لا تبهت مع حرارة الصيف والشمس المباشرة. تشمل لوحات التحذير من الجهد العالي، السقوط، المواد القابلة للاشتعال، ولوحات حظر التدخين أو دخول غير المصرح لهم.',
-    longDescEn: 'Designed in strict compliance with ISO 7010 and Egyptian Civil Defense graphic norms. High legibility guarantees maximum hazard comprehension for site staff and machine operators.',
+    id: 'prod-10',
+    sku: 'NC-TRF-CN10',
+    titleAr: 'أقماع وحواجز ومحددات المسار المرورية والموقعية',
+    titleEn: 'Heavy Duty Traffic Cones, Delineators & Site Barriers',
+    shortDescAr: 'أقماع مرورية مرنة عالية الارتداد بشرائط عاكسة وحواجز أمان بلاستيكية لتحديد مسارات التحويلات ومناطق العمل المؤقتة.',
+    shortDescEn: 'Heavyweight PVC traffic cones with prismatic reflective sleeves and interlockable worksite barriers.',
+    longDescAr: 'مهمات تأمين السلامة المرورية في مواقع المشروعات والشوارع والمحاور السريعة. تتميز الأقماع بقاعدة ثقيلة مضادة للانقلاب بفعل الرياح أو سرعة المركبات، مع مصدات وحواجز قابلة للملء بالماء أو الرمل لعزل مناطق الحفر والمعدات الثقيلة عن حركة المرور.',
+    longDescEn: 'Engineered for high visibility and durable impact recovery. Reflective sheeting guarantees 24/7 visibility for incoming traffic.',
+    categorySlug: 'traffic-utilities',
+    subcategorySlug: 'traffic-control',
+    tag: 'TRAFFIC & SITE CONTROL',
+    primaryImage: '/assets/14-traffic-cones-barriers.webp',
+    galleryImages: [],
+    imageAltAr: 'أقماع مرورية برتقالية وحواجز تأمين مسار العمل بالموقع',
+    imageAltEn: 'Reflective traffic cones and site demarcating barriers',
+    sourceType: 'company',
+    verificationStatus: 'verified',
+    availability: 'available',
+    brand: 'New Capital SiteSafe',
+    materialAr: 'بولي فينيل كلوريد مرن (Flexible PVC) عالي التحمل وقاعدة مطاطية',
+    materialEn: 'UV-stabilized flexible PVC with heavy recycled rubber base',
+    standards: [
+      { name: 'EN 13422 Traffic Cones & Delineators Specification', verified: true }
+    ],
+    specifications: [
+      { keyAr: 'الارتفاعات المتاحة', keyEn: 'Cone Heights', valueAr: '50 سم، 75 سم، 100 سم مع شريط عاكس فوسفوري', valueEn: '50cm, 75cm, 100cm with reflective collar' },
+      { keyAr: 'الوزن والثبات', keyEn: 'Base Weight', valueAr: 'من 2.5 كجم إلى 5 كجم لضمان الثبات الميداني', valueEn: '2.5kg to 5kg wind-resistant weighted base' }
+    ],
+    applicationsAr: ['تحويلات الطرق السريعة والمحاور الحضرية', 'عزل وتأمين حواف خنادق الحفر بالمواقع', 'تنظيم حركة شاحنات ومعدات الخرسانة'],
+    applicationsEn: ['Highway detours & worksites', 'Trench perimeter barricades', 'Heavy site logistics lanes'],
+    quoteEnabled: true,
+    published: true,
+    createdAt: '2026-01-10T08:00:00Z',
+    updatedAt: '2026-03-25T12:00:00Z'
+  },
+
+  // 11. لوحات وإشارات السلامة الموقعية والمنع والإلزام
+  {
+    id: 'prod-11',
+    sku: 'NC-SGN-SG11',
+    titleAr: 'لوحات وإشارات السلامة الموقعية والمنع والإلزام ISO 7010',
+    titleEn: 'Worksite Safety, Hazard Warning & Mandatory Directive Signboards',
+    shortDescAr: 'منظومة لوحات السلامة الشاملة للتحذير من المخاطر وإلزام مهمات الوقاية الموقعية من الألومنيوم المقاوم للشمس والطقس.',
+    shortDescEn: 'Standard industrial compliance sign panels: Caution hazards, Mandatory PPE directives, and Site Access rules.',
+    longDescAr: 'لوحات إرشادية وتحذيرية موحدة مصنعة بأعلى مواصفات المتانة لتناسب ظروف العمل الصعبة بالمواقع الإنشائية ومحطات المحولات. تشمل لوحات التحذير من المخاطر العلوية، لوحات إلزام ارتداء معدات الوقاية الشخصية، ولوحات تنظيم الدخول للمصرح لهم فقط بأحبار مقاومة للتآكل والأشعة فوق البنفسجية.',
+    longDescEn: 'Comprehensive compliance signage designed in strict accordance with ISO 7010. Clean bilingual typography and standardized pictograms prevent worksite violations and improve site auditing scores.',
     categorySlug: 'safety-signs',
     subcategorySlug: 'prohibition-warning',
-    tag: 'HAZARD WARNING SIGNS',
-    primaryImage: '/assets/04-category-safety-signs.webp', // EXACT MATCH: prohibition-signs.jpg
-    galleryImages: ['/assets/11-fire-safety-signage.webp'],
-    imageAltAr: 'لوحات منع وتحذير موضعية للمشروعات والمنشآت',
-    imageAltEn: 'Industrial warning and prohibition signboards',
+    tag: 'WORKSITE SAFETY PANELS',
+    primaryImage: '/assets/product-safety-signs.webp',
+    galleryImages: ['/assets/04-category-safety-signs.webp'],
+    imageAltAr: 'لوحات وإشارات إرشادية وتحذيرية وإلزامية موحدة بالموقع',
+    imageAltEn: 'Comprehensive worksite compliance and hazard warning sign stand',
     sourceType: 'company',
     verificationStatus: 'verified',
     availability: 'available',
     brand: 'New Capital Signage Division',
-    materialAr: 'ألواح PVC بسُمك 3 مم / ألومنيوم مركب / طبقة حماية UV',
-    materialEn: '3mm Rigid PVC / Aluminum Composite / UV protective lamination',
+    materialAr: 'ألومنيوم مركب بسُمك 3 مم / PVC صلب / طبقة حماية UV',
+    materialEn: '3mm Aluminum Composite / Rigid PVC / UV outdoor laminate',
     standards: [
       { name: 'ISO 7010 Graphical Symbols & Safety Signs', verified: true, documentRef: 'datasheets/signs-datasheet.pdf' },
-      { name: 'Egyptian Civil Defense Signage Alignment', verified: true }
+      { name: 'Egyptian Civil Defense Safety Sign Guidelines', verified: true }
     ],
     specifications: [
-      { keyAr: 'المقاسات القياسية', keyEn: 'Dimensions', valueAr: '20×30 سم، 30×40 سم، 40×60 سم، 60×80 سم ومقاسات مخصصة', valueEn: '20x30cm, 30x40cm, 40x60cm, 60x80cm, Custom' },
-      { keyAr: 'مقاومة الطقس', keyEn: 'Weather Resistance', valueAr: 'مقاومة تامة للحرارة والشمس والرطوبة حتى 5 سنوات', valueEn: 'UV & weatherproof rated for 5+ years' },
-      { keyAr: 'طريقة التثبيت', keyEn: 'Mounting', valueAr: 'ثقوب تثبيت للبراغي، شريط لاصق صناعي 3M، أو مشابك أعمدة', valueEn: 'Pre-drilled holes, industrial 3M tape, or post clamps' }
+      { keyAr: 'المقاسات القياسية', keyEn: 'Dimensions', valueAr: '30×40 سم، 40×60 سم، 60×80 سم، 100×120 سم للمداخل', valueEn: '30x40cm, 40x60cm, 60x80cm, 100x120cm entry boards' },
+      { keyAr: 'مقاومة العوامل الجوية', keyEn: 'Outdoor Rating', valueAr: 'مقاومة تامة للشمس والغبار والماء حتى 5 سنوات', valueEn: '5+ year outdoor weather & UV resistance' }
     ],
-    applicationsAr: ['مداخل وبوابات المشروعات الكبرى', 'محطات المحولات وغرف لوحات الكهرباء', 'المصانع وخطوط الإنتاج والكيماويات'],
-    applicationsEn: ['Site entrance portals', 'Electrical substation rooms', 'Production yards & chemical plants'],
+    applicationsAr: ['بوابات الدخول للمشروعات الكبرى', 'مناطق الرافعات والعمل على الارتفاعات', 'غرف لوحات الكهرباء والتحكم'],
+    applicationsEn: ['Major site entrance portals', 'Crane & elevated working zones', 'Electrical distribution switchyards'],
     datasheetUrl: '/datasheets/signs-datasheet.pdf',
     quoteEnabled: true,
     published: true,
@@ -332,104 +568,23 @@ export const initialProducts: Product[] = [
     updatedAt: '2026-03-25T12:00:00Z'
   },
 
-  // 6. لوحات إلزام مهمات الوقاية الشخصية
+  // 12. كشافات الإنارة الشمسية المستقلة
   {
-    id: 'prod-06',
-    sku: 'NC-SGN-PP06',
-    titleAr: 'لوحات إلزام ارتداء مهمات الوقاية الشخصية (Mandatory PPE)',
-    titleEn: 'Mandatory PPE Compliance Signboards',
-    shortDescAr: 'لوحات زرقاء دائرية قياسية تلزم العاملين بارتداء الخوذة، النظارة، الحذاء، والسترة قبل دخول مناطق العمل الخطرة.',
-    shortDescEn: 'Standard blue circular mandatory boards specifying compulsory PPE requirements at project check-points.',
-    longDescAr: 'لوحات إرشادية إلزامية توضح التعليمات الأمنية الواجب اتباعها قبل دخول ورش التقطيع، مواقع التشييد، والمنصات المرتفعة. تساعد مسؤولي السلامة والصحة المهنية (HSE) في ضبط بيئة العمل وتطبيق شروط السلامة والتفتيش الدوري.',
-    longDescEn: 'Clear visual directives minimizing jobsite violations and injuries. Manufactured with scratch-resistant finishes for heavy dust and wind environments.',
-    categorySlug: 'safety-signs',
-    subcategorySlug: 'ppe-mandatory',
-    tag: 'MANDATORY PPE DIRECTIVES',
-    primaryImage: '/assets/09-hard-hat-eye-protection.webp', // EXACT MATCH: ppe-signs.jpg
-    galleryImages: ['/assets/02-category-ppe.webp'],
-    imageAltAr: 'لوحات إلزام ارتداء خوذة وحذاء وسترة الأمان',
-    imageAltEn: 'Mandatory PPE directive sign board',
-    sourceType: 'company',
-    verificationStatus: 'verified',
-    availability: 'available',
-    brand: 'New Capital Signage Division',
-    materialAr: 'PVC مضغوط أو صفائح ألومنيوم مع طبقة عاكسة للضوء',
-    materialEn: 'Compressed PVC or Aluminum sheet with reflective foil',
-    standards: [
-      { name: 'ISO 7010 Mandatory Action Symbols (M-Series)', verified: true, documentRef: 'datasheets/ppe-signs-datasheet.pdf' }
-    ],
-    specifications: [
-      { keyAr: 'اللغات المتاحة', keyEn: 'Languages', valueAr: 'عربي وإنجليزي مع الرموز التعبيرية المعيارية', valueEn: 'Bilingual (Arabic & English) with ISO symbols' },
-      { keyAr: 'المقاسات', keyEn: 'Sizes', valueAr: '30×40 سم، 40×60 سم، 60×90 سم', valueEn: '30x40cm, 40x60cm, 60x90cm' },
-      { keyAr: 'المتانة الميكانيكية', keyEn: 'Durability', valueAr: 'مقاومة للصدمات والخدش ومواد التنظيف', valueEn: 'Scratch & detergent resistant' }
-    ],
-    applicationsAr: ['بوابات الدخول للمشروعات ومحطات المترو', 'المناجم والمحاجر ومصانع الأسمنت', 'مناطق الرافعات والعمل على ارتفاعات'],
-    applicationsEn: ['Major site entrance security gates', 'Quarries & cement plants', 'Crane loading & scaffolding areas'],
-    datasheetUrl: '/datasheets/ppe-signs-datasheet.pdf',
-    quoteEnabled: true,
-    published: true,
-    createdAt: '2026-01-10T08:00:00Z',
-    updatedAt: '2026-03-25T12:00:00Z'
-  },
-
-  // 7. لوحات ومستلزمات الحريق
-  {
-    id: 'prod-07',
-    sku: 'NC-FIR-SN07',
-    titleAr: 'لوحات ومستلزمات مكافحة الحريق الفوسفورية (Fire Safety)',
-    titleEn: 'Photoluminescent Fire Safety Signs & Accessories',
-    shortDescAr: 'لوحات تحديد مواقع طفايات الحريق وخراطيم الإطفاء ومسارات الإخلاء المضيئة ذاتياً في الظلام عند انقطاع الكهرباء.',
-    shortDescEn: 'Glow-in-the-dark fire equipment markers and emergency wayfinding signs complying with DIN 67510.',
-    longDescAr: 'علامات ولوحات تحديد معدات الإطفاء ومخارج الطوارئ مصنعة من مواد فوسفورية متطورة تختزن الضوء وتتوهج تلقائياً لساعات طويلة في حال انقطاع التيار الكهربائي أو تصاعد الدخان، مما يرشد فرق الإطفاء والعمال فوراً إلى وسائل مكافحة الحريق ومخارج النجاة.',
-    longDescEn: 'Critical life-safety indicators aligning with NFPA 170 and DIN 67510 standards. Zero power consumption ensures perpetual reliability during building blackout crises.',
-    categorySlug: 'fire-safety',
-    subcategorySlug: 'fire-signs',
-    tag: 'LIFE SAFETY & FIRE',
-    primaryImage: '/assets/10-fire-extinguisher-product.webp', // EXACT MATCH: fire-signs.jpg
-    galleryImages: ['/assets/11-fire-safety-signage.webp'],
-    imageAltAr: 'لوحات إرشادية فوسفورية لمعدات الإطفاء ومخارج الطوارئ',
-    imageAltEn: 'Photoluminescent fire equipment locator sign',
-    sourceType: 'company',
-    verificationStatus: 'verified',
-    availability: 'available',
-    brand: 'New Capital Fire Division',
-    materialAr: 'بوليمر فوسفوري مشع (Photoluminescent) ذاتي الإطفاء / ألومنيوم',
-    materialEn: 'Self-extinguishing photoluminescent polymer / Aluminum backing',
-    standards: [
-      { name: 'DIN 67510 Luminescence Specification', verified: true, documentRef: 'datasheets/fire-signs-datasheet.pdf' },
-      { name: 'NFPA 170 Standard for Fire Safety Symbols', verified: true }
-    ],
-    specifications: [
-      { keyAr: 'مدة التوهج في الظلام', keyEn: 'Glow Duration', valueAr: 'توهج يستمر حتى 6 إلى 8 ساعات بعد انقطاع الضوء', valueEn: 'Luminescent afterglow up to 8 hours' },
-      { keyAr: 'المقاسات المتاحة', keyEn: 'Dimensions', valueAr: '15×15 سم، 20×20 سم، 20×40 سم، 30×30 سم', valueEn: '15x15cm, 20x20cm, 20x40cm, 30x30cm' },
-      { keyAr: 'مقاومة الحريق', keyEn: 'Flame Retardancy', valueAr: 'خامات ذاتية الإطفاء غير ناشرة للهب', valueEn: 'Self-extinguishing Class B1' }
-    ],
-    applicationsAr: ['غرف المولدات ومحولات الضغط العالي', 'المباني الإدارية بالمشروعات والكمبوندات', 'المستودعات ومخازن الوقود والمواد القابلة للاشتعال'],
-    applicationsEn: ['Substations & generator rooms', 'Administrative site compounds', 'Flammable material depots'],
-    datasheetUrl: '/datasheets/fire-signs-datasheet.pdf',
-    quoteEnabled: true,
-    published: true,
-    createdAt: '2026-01-10T08:00:00Z',
-    updatedAt: '2026-03-25T12:00:00Z'
-  },
-
-  // 8. كشافات الإنارة الشمسية
-  {
-    id: 'prod-08',
-    sku: 'NC-SOL-LT08',
-    titleAr: 'كشافات الإنارة الشمسية المستقلة للمواقع والأسوار (Solar LED)',
-    titleEn: 'Commercial Autonomous Solar Worksite Floodlights',
-    shortDescAr: 'أنظمة إنارة شمسية ذكية متكاملة (All-In-One) للمواقع الإنشائية والأسوار المؤقتة ببطاريات فوسفات الليثيوم LiFePO4.',
-    shortDescEn: 'Integrated off-grid solar floodlights engineered for remote jobsite perimeters and contractor base camps.',
+    id: 'prod-12',
+    sku: 'NC-SOL-FL12',
+    titleAr: 'كشافات الإنارة الشمسية المستقلة للأسوار والمواقع (Solar LED)',
+    titleEn: 'Heavy-Duty Commercial Off-Grid Solar LED Floodlights',
+    shortDescAr: 'أنظمة إنارة شمسية ذكية متكاملة للمواقع الإنشائية والأسوار المؤقتة ببطاريات فوسفات الليثيوم LiFePO4 وحماية IP66.',
+    shortDescEn: 'Integrated 500W IP66 solar floodlights with high-capacity LiFePO4 batteries and remote controls.',
     longDescAr: 'كشافات إنارة شمسية عالية السطوع تجمع بين لوح مونوكريستالين فائق الكفاءة، مصابيح ليد SMD ذات كفاءة ضوئية عالية، وحزمة بطاريات ليثيوم LiFePO4 تتحمل درجات الحرارة المرتفعة في الصحراء المصرية. تعمل ذاتياً من الغسق حتى الفجر دون الحاجة لتمديدات أسلاك أو استهلاك ديزل المولدات.',
     longDescEn: 'Rugged IP66 alloy structure resisting sandstorms, torrential rain, and extreme solar heat. Features intelligent motion and twilight sensors to ensure illumination for up to 2-3 cloudy nights.',
     categorySlug: 'solar-lighting',
     subcategorySlug: 'floodlights',
     tag: 'SOLAR INFRASTRUCTURE',
-    primaryImage: '/assets/15-solar-floodlight-product.webp', // EXACT MATCH: solar-lights.jpg
-    galleryImages: ['/assets/16-solar-street-light-project.webp'],
-    imageAltAr: 'كشافات إنارة شمسية متكاملة لأسوار المشروعات',
-    imageAltEn: 'Commercial solar LED floodlight for worksite perimeters',
+    primaryImage: '/assets/product-solar-floodlight.webp',
+    galleryImages: ['/assets/15-solar-floodlight-product.webp'],
+    imageAltAr: 'كشاف إنارة شمسي عالي القدرة مع لوح شمسي مستقل وريموت تحكم',
+    imageAltEn: 'Commercial solar LED floodlight kit with monocrystalline panel',
     sourceType: 'company',
     verificationStatus: 'verified',
     availability: 'project_order',
@@ -441,7 +596,7 @@ export const initialProducts: Product[] = [
       { name: 'CE & RoHS Compliant Power Components', verified: true }
     ],
     specifications: [
-      { keyAr: 'القدرة الضوئية', keyEn: 'Power Output', valueAr: '200 واط / 400 واط / 600 واط (حسب الارتفاع المطلوب)', valueEn: '200W, 400W, 600W options' },
+      { keyAr: 'القدرة الضوئية', keyEn: 'Power Output', valueAr: '200 واط / 500 واط / 600 واط (حسب الارتفاع المطلوب)', valueEn: '200W, 500W, 600W options' },
       { keyAr: 'تقنية البطارية', keyEn: 'Battery Cell', valueAr: 'ليثيوم فوسفات الحديد LiFePO4 (أكثر من 2000 دورة تفريغ)', valueEn: 'LiFePO4 high-temperature resistant cells' },
       { keyAr: 'فترة الإضاءة', keyEn: 'Runtime', valueAr: '12-14 ساعة متواصلة يومياً مع احتياطي يومين غائمين', valueEn: '12-14 hours continuous / 2 nights backup' },
       { keyAr: 'درجة الحماية الجوية', keyEn: 'Ingress Rating', valueAr: 'IP66 عازل تام للأتربة ومقاوم لرشاشات المياه القوية', valueEn: 'IP66 water & dust sealed' }
@@ -455,67 +610,67 @@ export const initialProducts: Product[] = [
     updatedAt: '2026-03-25T12:00:00Z'
   },
 
-  // 9. لوحات مخارج الطوارئ ومسارات الهروب
+  // 13. أعمدة وإنارة الشوارع المستقلة بالطاقة الشمسية
   {
-    id: 'prod-09',
-    sku: 'NC-SGN-EV09',
-    titleAr: 'لوحات مخارج الطوارئ ومسارات الهروب (Emergency Evacuation)',
-    titleEn: 'Emergency Exit & Evacuation Route Signboards',
-    shortDescAr: 'علامات ولوحات إرشادية خضراء معيارية لتوجيه الأفراد نحو مخارج النجاة ونقاط التجمع الآمنة عند الطوارئ.',
-    shortDescEn: 'Green directional wayfinding signs marking emergency escape routes and muster points.',
-    longDescAr: 'لوحات مسارات الهروب المعيارية طبقا لكود الدفاع المدني، مصنعة على ألواح خفيفة ومتينة بألوان خضراء فسفورية أو عاكسة، توجه العمال والزوار بدقة نحو أقرب سلم طوارئ أو مخرج نجاة أو نقطة تجمع آمنة في الموقع.',
-    longDescEn: 'Essential safety wayfinding boards ensuring rapid building and site evacuation during fire or gas alarm incidents.',
-    categorySlug: 'safety-signs',
-    subcategorySlug: 'evacuation-fire',
-    tag: 'EVACUATION WAYFINDING',
-    primaryImage: '/assets/12-emergency-exit-signage.webp', // EXACT MATCH: evacuation-signs.jpg
-    galleryImages: ['/assets/11-fire-safety-signage.webp'],
-    imageAltAr: 'لوحات مخارج الطوارئ ومسارات الهروب الخضراء',
-    imageAltEn: 'Green emergency exit route sign',
+    id: 'prod-13',
+    sku: 'NC-SOL-ST13',
+    titleAr: 'أعمدة وإنارة الشوارع والطرق المستقلة بالطاقة الشمسية',
+    titleEn: 'Autonomous Commercial Solar Street Lighting Luminaires',
+    shortDescAr: 'أنظمة إنارة شوارع وطرق موقعية قائمة بذاتها بأعمدة مدمجة وألواح شمسية لتأمين محاور المشروعات الإنشائية.',
+    shortDescEn: 'All-in-one commercial solar street lights for arterial access roads and remote worksite infrastructure.',
+    longDescAr: 'حلول إنارة مستدامة ومستقلة تماماً عن شبكة الكهرباء العامة لإنارة المداخل الرئيسية للمشروعات، ساحات التشوين اللوجستية، والطرق الفرعية بالمواقع النائية. توفر مستويات إضاءة قياسية تلبي متطلبات السلامة والأمن الميداني.',
+    longDescEn: 'Zero-grid civil lighting solutions engineered for prolonged project lifespans with automated twilight-to-dawn switching.',
+    categorySlug: 'solar-lighting',
+    subcategorySlug: 'street-pole',
+    tag: 'SOLAR STREET LIGHTS',
+    primaryImage: '/assets/16-solar-street-light-project.webp',
+    galleryImages: [],
+    imageAltAr: 'أعمدة إنارة شوارع شمسية بموقع إنشائي',
+    imageAltEn: 'Solar street luminaires installed on access road',
     sourceType: 'company',
     verificationStatus: 'verified',
-    availability: 'available',
-    brand: 'New Capital Signage Division',
-    materialAr: 'PVC صلب فوسفوري ذاتي الإضاءة أو ألومنيوم عاكس',
-    materialEn: 'Photoluminescent rigid PVC or reflective aluminum',
+    availability: 'project_order',
+    brand: 'New Capital Solar Spec',
+    materialAr: 'أعمدة صلب مجلفن / أذرع تثبيت معالجة / مصابيح ليد عالية الكفاءة',
+    materialEn: 'Galvanized steel poles / Heavy-duty alloy brackets / High-lumen LED chips',
     standards: [
-      { name: 'ISO 7010 Safe Condition Symbols (E-Series)', verified: true }
+      { name: 'IEC 60598-2-3 Luminaires for Road and Street Lighting', verified: true }
     ],
     specifications: [
-      { keyAr: 'المقاسات المتاحة', keyEn: 'Dimensions', valueAr: '15×30 سم، 20×40 سم، 30×60 سم', valueEn: '15x30cm, 20x40cm, 30x60cm' },
-      { keyAr: 'الوضوح البصري', keyEn: 'Visibility', valueAr: 'رؤية واضحة حتى مسافة 25 متراً في الممرات', valueEn: 'Visible up to 25m in hallways' }
+      { keyAr: 'الارتفاع الموصى به', keyEn: 'Pole Height', valueAr: 'من 6 أمتار حتى 10 أمتار', valueEn: '6m to 10m mounting height' },
+      { keyAr: 'شدة الإضاءة', keyEn: 'Luminous Flux', valueAr: 'من 8,000 إلى 15,000 لومن', valueEn: '8,000 to 15,000 lumens' }
     ],
-    applicationsAr: ['ممرات ومخارج مباني المشروعات الإدارية', 'محطات المترو والأنفاق والمطارات', 'المستودعات والورش المغلقة'],
-    applicationsEn: ['Administrative site buildings', 'Metro stations & tunnels', 'Warehouses and enclosed workshops'],
+    applicationsAr: ['المحاور الرئيسية لمشروعات التشييد والبنية التحتية', 'المجمعات السكنية والمناطق الصناعية الجديدة'],
+    applicationsEn: ['Primary project arterial roads', 'New industrial cities & remote basecamps'],
     quoteEnabled: true,
     published: true,
     createdAt: '2026-01-10T08:00:00Z',
     updatedAt: '2026-03-25T12:00:00Z'
   },
 
-  // 10. مواسير التمديدات الكهربائية EMT
+  // 14. مواسير التمديدات الكهربائية المجلفنة EMT
   {
-    id: 'prod-10',
-    sku: 'NC-ELE-EM10',
+    id: 'prod-14',
+    sku: 'NC-ELE-EM14',
     titleAr: 'مواسير التمديدات الكهربائية المجلفنة EMT والإكسسوارات',
-    titleEn: 'Galvanized EMT Steel Conduit & Accessories',
+    titleEn: 'Galvanized EMT Steel Conduit Systems, Couplings & Fittings',
     shortDescAr: 'مواسير EMT معدنية مجلفنة وإكسسواراتها من جلب ومثبتات لمشروعات التمديدات الكهروميكانيكية المتوافقة مع الكود.',
-    shortDescEn: 'UL listed electrical metallic tubing (EMT) with zinc coating for industrial wire management.',
+    shortDescEn: 'UL listed electrical metallic tubing (EMT) with zinc coating and precision fittings for industrial wire protection.',
     longDescAr: 'أنظمة مواسير معدنية صلبة ومجلفنة لحماية تمديدات كابلات الكهرباء والتيار الخفيف من الصدمات والحرارة في المنشآت الصناعية والمباني الإدارية، مطابقة للمواصفات الفنية المعتمدة مع تشكيلة متكاملة من الجلب، الأكواع، وصناديق التجميع.',
     longDescEn: 'Designed for safe commercial raceways. Features smooth interior finish for easy wire pull, resistance to corrosion, and complete mechanical shielding.',
     categorySlug: 'electrical-conduit',
     subcategorySlug: 'emt-conduit',
     tag: 'ELECTRICAL CONDUIT SPEC',
-    primaryImage: '/assets/19-emt-reference-material.webp', // EXACT MATCH: electrical-warning.jpg
-    galleryImages: ['/assets/20-quality-and-documentation.webp'],
-    imageAltAr: 'مواسير كهربائية معدنية مجلفنة EMT لمشروعات التمديدات',
-    imageAltEn: 'Galvanized EMT steel conduit for electrical wiring',
+    primaryImage: '/assets/product-emt-conduit.webp',
+    galleryImages: ['/assets/19-emt-reference-material.webp'],
+    imageAltAr: 'مواسير كهربائية معدنية مجلفنة EMT وإكسسواراتها وجلب التثبيت',
+    imageAltEn: 'Galvanized EMT steel conduit pipes and electrical fittings display',
     sourceType: 'supplier',
     verificationStatus: 'verified',
     availability: 'project_order',
     brand: 'Alex EMT / Approved Supplier Spec',
     materialAr: 'صلب عالي الجودة مجلفن بالغمس الساخن (Hot-Dip Galvanized Steel)',
-    materialEn: 'High grade hot-dip galvanized steel',
+    materialEn: 'High grade hot-dip galvanized steel / Precision zinc alloy fittings',
     standards: [
       { name: 'ANSI C80.3 / UL 797 Metallic Tubing Reference', verified: true, documentRef: 'documents/Catalogo-alex.pdf' }
     ],
