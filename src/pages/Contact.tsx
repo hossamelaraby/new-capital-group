@@ -29,16 +29,29 @@ export const Contact: React.FC = () => {
         {/* Left Information Cards (Col 7) */}
         <div className="lg:col-span-7 space-y-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {/* Headquarters Card */}
+            {/* Headquarters Card - 6th of October */}
             <div className="p-6 rounded-2xl bg-[#FBFAF6] border border-[#DCD3C5] space-y-3 shadow-sm">
               <div className="w-10 h-10 rounded-full bg-[#123D40]/10 flex items-center justify-center text-[#B96543]">
                 <MapPin className="w-5 h-5" />
               </div>
               <h3 className="text-sm font-bold text-[#123D40]">
-                {isAr ? 'المقر الإداري والمراسلات' : 'Headquarters & Address'}
+                {isAr ? 'المقر الرئيسي (مدينة 6 أكتوبر)' : 'Headquarters (6th of October)'}
               </h3>
               <p className="text-xs text-[#687174] leading-relaxed">
-                {isAr ? settings.addressAr : settings.addressEn}
+                {isAr ? '6 شارع النخيل، الحي المتميز، السادس من أكتوبر، الجيزة' : '6 El-Nakheel St, Al-Motamayez District, 6th of October City'}
+              </p>
+            </div>
+
+            {/* Cairo Branch Card - Al Sahel */}
+            <div className="p-6 rounded-2xl bg-[#FBFAF6] border border-[#DCD3C5] space-y-3 shadow-sm">
+              <div className="w-10 h-10 rounded-full bg-[#123D40]/10 flex items-center justify-center text-[#123D40]">
+                <MapPin className="w-5 h-5" />
+              </div>
+              <h3 className="text-sm font-bold text-[#123D40]">
+                {isAr ? 'فرع ومخازن القاهرة (الساحل)' : 'Cairo Branch & Warehouse'}
+              </h3>
+              <p className="text-xs text-[#687174] leading-relaxed">
+                {isAr ? '11 شارع الحرية، الساحل، القاهرة' : '11 El-Horreya St, Al-Sahel, Cairo'}
               </p>
             </div>
 

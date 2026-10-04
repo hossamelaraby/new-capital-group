@@ -89,7 +89,7 @@ export const Header: React.FC = () => {
               {isAr ? 'مجموعة العاصمة الجديدة' : 'NEW CAPITAL GROUP'}
             </span>
             <span className="text-[10px] sm:text-[11px] font-semibold text-[#687174] tracking-wider uppercase -mt-0.5">
-              {isAr ? 'مستلزمات الأمن الصناعي ومهمات الوقاية' : 'INDUSTRIAL SAFETY & PPE SUPPLIES'}
+              {isAr ? 'مستلزمات الأمن الصناعي ومهمات الوقاية الشخصية ومكافحة الحريق' : 'INDUSTRIAL SAFETY, PPE & FIRE PROTECTION'}
             </span>
           </div>
         </Link>

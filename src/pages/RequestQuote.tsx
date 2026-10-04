@@ -409,17 +409,35 @@ export const RequestQuote: React.FC = () => {
           </div>
 
           {/* Quick Direct Contacts */}
-          <div className="p-5 rounded-2xl bg-[#FBFAF6] border border-[#DCD3C5] text-xs text-[#687174] space-y-2.5 shadow-sm">
+          <div className="p-5 rounded-2xl bg-[#FBFAF6] border border-[#DCD3C5] text-xs text-[#687174] space-y-3 shadow-sm">
             <span className="font-bold text-[#123D40] block">
-              {isAr ? 'للتنسيق الفني والميداني المباشر:' : 'Direct Engineering Line:'}
+              {isAr ? 'للتنسيق الفني والميداني المباشر:' : 'Direct Engineering & Technical Line:'}
             </span>
-            <div className="flex items-center gap-2">
-              <Phone className="w-3.5 h-3.5 text-[#B96543]" />
-              <span dir="ltr">01010550857 / 02 2460 2460</span>
+            <div className="space-y-1.5 text-[11px]" dir="ltr">
+              <div className="flex items-center justify-between gap-2 border-b border-[#DCD3C5]/50 pb-1">
+                <span className="text-[#687174] text-right font-sans">{isAr ? 'المكتب الفني' : 'Technical Dept'}</span>
+                <span className="font-mono font-bold text-[#123D40]">01092920624</span>
+              </div>
+              <div className="flex items-center justify-between gap-2 border-b border-[#DCD3C5]/50 pb-1">
+                <span className="text-[#687174] text-right font-sans">{isAr ? 'متابعة المشروعات' : 'Project Follow-up'}</span>
+                <span className="font-mono font-bold text-[#123D40]">01001761127</span>
+              </div>
+              <div className="flex items-center justify-between gap-2 border-b border-[#DCD3C5]/50 pb-1">
+                <span className="text-[#687174] text-right font-sans">{isAr ? 'التوريدات الميدانية' : 'Field Supply'}</span>
+                <span className="font-mono font-bold text-[#123D40]">01001761107</span>
+              </div>
+              <div className="flex items-center justify-between gap-2 border-b border-[#DCD3C5]/50 pb-1">
+                <span className="text-[#687174] text-right font-sans">{isAr ? 'خدمة العملاء' : 'Customer Service'}</span>
+                <span className="font-mono font-bold text-[#123D40]">01019644315</span>
+              </div>
+              <div className="flex items-center justify-between gap-2 pt-0.5">
+                <span className="text-[#687174] text-right font-sans">{isAr ? 'الهاتف الأرضي' : 'Landline'}</span>
+                <span className="font-mono font-bold text-[#B96543]">02 2460 2460</span>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <Mail className="w-3.5 h-3.5 text-[#B96543]" />
-              <span className="truncate">newcapitalcompany2020@gmail.com</span>
+            <div className="flex items-center gap-2 pt-1 border-t border-[#DCD3C5]">
+              <Mail className="w-3.5 h-3.5 text-[#B96543] shrink-0" />
+              <span className="truncate font-mono text-[11px]">newcapitalcompany2020@gmail.com</span>
             </div>
           </div>
         </div>

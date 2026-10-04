@@ -32,8 +32,8 @@ export const Home: React.FC = () => {
       titleAr: 'مهمات الوقاية الشخصية (PPE)',
       titleEn: 'PPE & Workwear',
       slug: 'ppe',
-      descAr: 'أحذية سلامة هندسية S3، سترات عاكسة، قفازات عمل، وخوذات معتمدة.',
-      descEn: 'Safety footwear S3, high-visibility vests, work gloves, and head protection.',
+      descAr: 'أحذية سلامة واقية S3 و S1B، سترات عاكسة، قفازات، بدل أحماض وكيماويات، ومهمات لحام وكهرباء.',
+      descEn: 'Safety footwear S3/S1B, hi-vis vests, protective gloves, chemical suits, and welding PPE.',
       icon: Shield,
       isCore: true
     },
@@ -49,11 +49,11 @@ export const Home: React.FC = () => {
     },
     {
       num: '03',
-      titleAr: 'لوحات السلامة وحماية الموقع',
-      titleEn: 'Safety Signs & Site Protection',
+      titleAr: 'المستلزمات المرورية ولوحات السلامة والصحة المهنية داخل المواقع والمنشآت',
+      titleEn: 'Traffic Supplies & Occupational Health & Safety Signs in Sites & Facilities',
       slug: 'safety-signs',
-      descAr: 'لوحات المنع والتحذير ISO 7010 ومحددات المسارات والمناطق الخطرة.',
-      descEn: 'ISO 7010 hazard warning, mandatory directives, and perimeter demarcation.',
+      descAr: 'المستلزمات المرورية ومحددات المسارات، ولوحات المنع والتحذير ISO 7010 ومهمات الإلزام الموقعية.',
+      descEn: 'Traffic equipment, demarcators, ISO 7010 warning signs, and mandatory worksite directives.',
       icon: AlertTriangle,
       isCore: true
     },
@@ -99,17 +99,17 @@ export const Home: React.FC = () => {
                 <span className="font-semibold text-[#B96543]">Industrial Safety Supply</span>
               </div>
 
-              {/* Exact Recommended Arabic Headline from PDF */}
+              {/* Client Exact Headline */}
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#123D40] tracking-tight leading-tight">
                 {isAr ? (
                   <>
-                    متخصصون في الأمن الصناعي <br />
-                    <span className="text-[#B96543]">وحماية العاملين</span>
+                    مستلزمات الأمن الصناعي ومهمات الوقاية الشخصية ومكافحة الحريق <br />
+                    <span className="text-[#B96543]">وحماية العاملين والمنشآت</span>
                   </>
                 ) : (
                   <>
-                    Specialized in Industrial Safety <br />
-                    <span className="text-[#B96543]">& Workforce Protection</span>
+                    Industrial Safety, PPE & Fire Protection Supplies <br />
+                    <span className="text-[#B96543]">& Protecting Workforces & Facilities</span>
                   </>
                 )}
               </h1>
@@ -342,7 +342,7 @@ export const Home: React.FC = () => {
             <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
               <div>
                 <h3 className="text-lg font-bold text-[#123D40]">
-                  {isAr ? 'لوحات السلامة وحماية الموقع الميداني' : 'Safety Signs & Site Protection'}
+                  {isAr ? 'المستلزمات المرورية ولوحات السلامة والصحة المهنية' : 'Traffic Supplies & Occupational Safety Signs'}
                 </h3>
                 <p className="text-xs text-[#687174] mt-2 leading-relaxed">
                   {isAr 

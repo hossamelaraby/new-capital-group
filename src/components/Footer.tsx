@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
                   {isAr ? 'مجموعة العاصمة الجديدة' : 'NEW CAPITAL GROUP'}
                 </span>
                 <span className="text-[10px] uppercase text-[#AEBFAE] block font-mono">
-                  {isAr ? 'للتوريدات العمومية والأمن الصناعي' : 'INDUSTRIAL SAFETY SUPPLIES'}
+                  {isAr ? 'مستلزمات الأمن الصناعي ومهمات الوقاية ومكافحة الحريق' : 'INDUSTRIAL SAFETY, PPE & FIRE PROTECTION'}
                 </span>
               </div>
             </div>
@@ -110,15 +110,38 @@ export const Footer: React.FC = () => {
               {isAr ? 'بيانات الاتصال الميداني' : 'Direct Contact'}
             </h4>
             <div className="space-y-2.5 text-xs text-[#DCD3C5]/90">
-              <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-[#D89B2B] shrink-0 mt-0.5" />
-                <span>{isAr ? settings.addressAr : settings.addressEn}</span>
+              <div className="space-y-1">
+                <div className="flex items-start gap-2">
+                  <MapPin className="w-4 h-4 text-[#D89B2B] shrink-0 mt-0.5" />
+                  <div>
+                    <span className="font-bold text-white block">{isAr ? 'المقر الرئيسي (أكتوبر):' : 'Headquarters (6th of October):'}</span>
+                    <span className="text-[#DCD3C5]/80">{isAr ? '6 شارع النخيل، الحي المتميز، السادس من أكتوبر' : '6 El-Nakheel St, Al-Motamayez District, 6th of October City'}</span>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2 pt-1 border-t border-[#53787A]/30">
+                  <MapPin className="w-4 h-4 text-[#AEBFAE] shrink-0 mt-0.5" />
+                  <div>
+                    <span className="font-bold text-white block">{isAr ? 'فرع القاهرة (الساحل):' : 'Cairo Branch:'}</span>
+                    <span className="text-[#DCD3C5]/80">{isAr ? '11 شارع الحرية، الساحل، القاهرة' : '11 El-Horreya St, Al-Sahel, Cairo'}</span>
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-[#D89B2B] shrink-0" />
-                <span dir="ltr">{settings.landline}</span>
+
+              <div className="pt-2 border-t border-[#53787A]/30 space-y-1.5">
+                <div className="flex items-center gap-2">
+                  <Phone className="w-4 h-4 text-[#D89B2B] shrink-0" />
+                  <span dir="ltr" className="font-bold text-white">01092920624 - 01001761127</span>
+                </div>
+                <div className="flex items-center gap-2 text-[11px] text-[#DCD3C5]/80 font-mono" dir="ltr">
+                  <span>01001761107 • 01019644315 • 01010550857</span>
+                </div>
+                <div className="flex items-center gap-2 text-[11px] text-[#AEBFAE]">
+                  <span>{isAr ? 'أرضي:' : 'Tel:'}</span>
+                  <span dir="ltr" className="font-mono">02 2460 2460</span>
+                </div>
               </div>
-              <div className="flex items-center gap-2">
+
+              <div className="flex items-center gap-2 pt-1 border-t border-[#53787A]/30">
                 <Mail className="w-4 h-4 text-[#D89B2B] shrink-0" />
                 <span className="truncate">{settings.primaryEmail}</span>
               </div>

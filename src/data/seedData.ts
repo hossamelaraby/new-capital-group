@@ -6,19 +6,19 @@ export const initialSiteSettings: SiteSettings = {
   legalNameAr: 'شركة العاصمة الجديدة للتوريدات العمومية — أحمد شرف الدين',
   legalNameEn: 'New Capital for General Supplies — Ahmed Sharaf El Dien',
   establishedYear: '2021',
-  addressAr: '20 شارع الملك الصالح، الساحل، القاهرة، جمهورية مصر العربية',
-  addressEn: '20 Al-Malek Al-Saleh Street, Al-Sahel, Cairo, Egypt',
+  addressAr: 'المقر الرئيسي: 6 شارع النخيل، الحي المتميز، السادس من أكتوبر | فرع القاهرة: 11 شارع الحرية، الساحل، القاهرة',
+  addressEn: 'Headquarters: 6 El-Nakheel St, Al-Motamayez District, 6th of October City | Cairo Branch: 11 El-Horreya St, Al-Sahel, Cairo',
   landline: '02 2460 2460',
   primaryEmail: 'newcapitalcompany2020@gmail.com',
-  taglineAr: 'حلول توريد متكاملة للمشروعات وحماية بيئات العمل والبنية التحتية',
-  taglineEn: 'Project-ready safety and site-protection supplies for high-demand environments',
+  taglineAr: 'مستلزمات الأمن الصناعي ومهمات الوقاية الشخصية ومكافحة الحريق وحماية العاملين والمنشآت',
+  taglineEn: 'Industrial Safety, PPE, Fire Protection Supplies & Workforce Protection',
   phoneNumbers: [
     { number: '01010550857', label: 'المبيعات والمشروعات (Sales)', active: true, public: true },
-    { number: '01019644315', label: 'خدمة العملاء (Client Support)', active: true, public: true },
-    { number: '01210250001', label: 'الإدارة والتوريدات (Procurement)', active: true, public: true },
-    { number: '01092920624', label: 'المكتب الفني (Technical Office)', active: true, public: true },
-    { number: '01001761107', label: 'التوريدات الميدانية (Site Delivery)', active: true, public: false },
-    { number: '01001761127', label: 'متابعة المشروعات (Project Tracking)', active: true, public: false },
+    { number: '01019644315', label: 'خدمة العملاء والتوريدات (Support)', active: true, public: true },
+    { number: '01092920624', label: 'المكتب الفني والمواصفات (Technical Office)', active: true, public: true },
+    { number: '01001761107', label: 'التوريدات الميدانية (Site Delivery)', active: true, public: true },
+    { number: '01001761127', label: 'متابعة المشروعات والعمليات (Project Tracking)', active: true, public: true },
+    { number: '01210250001', label: 'الإدارة العامة والمشتريات (Procurement)', active: true, public: true },
   ]
 };
 
@@ -35,17 +35,19 @@ export const initialCategories: Category[] = [
     published: true,
     order: 1,
     subcategories: [
-      { slug: 'footwear', nameAr: 'أحذية السلامة المهنية S1/S3', nameEn: 'Safety Footwear S1/S3' },
+      { slug: 'footwear', nameAr: 'أحذية سلامة واقية بمواصفات S3 - S1B', nameEn: 'Safety Footwear S3 / S1B' },
       { slug: 'vests', nameAr: 'سترات السلامة العاكسة الفوسفورية', nameEn: 'Hi-Vis Reflective Vests' },
       { slug: 'gloves', nameAr: 'قفازات الحماية الميكانيكية والقطع', nameEn: 'Work & Protective Gloves' },
       { slug: 'head-eye', nameAr: 'خوذات الرأس وحماية الأعين والوجه', nameEn: 'Helmets & Eye Protection' },
-      { slug: 'harness', nameAr: 'أحزمة الأمان والعمل على الارتفاعات', nameEn: 'Fall Arrest & Safety Harnesses' }
+      { slug: 'harness', nameAr: 'أحزمة الأمان والعمل على الارتفاعات', nameEn: 'Fall Arrest & Safety Harnesses' },
+      { slug: 'chemical-suits', nameAr: 'الملابس الواقية من الأحماض والكيماويات', nameEn: 'Chemical & Acid Protective Suits' },
+      { slug: 'welding-heat-electric', nameAr: 'مهمات الوقاية من اللحام والحرارة المرتفعة والكهرباء', nameEn: 'Welding, Heat & Electrical PPE' }
     ]
   },
   {
     id: 'cat-signs',
     slug: 'safety-signs',
-    nameAr: 'لوحات وإشارات السلامة الموقعية',
+    nameAr: 'المستلزمات المرورية ولوحات السلامة والصحة المهنية داخل المواقع والمنشآت',
     nameEn: 'Safety Signs & Site Signage',
     descAr: 'لوحات المنع، التحذير من المخاطر، إلزام مهمات الوقاية، ولوحات مسارات الإخلاء والطوارئ مطابقة لمواصفات ISO 7010 والكود المصري.',
     descEn: 'Durable rigid PVC, aluminum, and reflective safety signage boards for industrial hazard control.',
@@ -130,9 +132,9 @@ export const initialProducts: Product[] = [
   {
     id: 'prod-01',
     sku: 'NC-PPE-SH01',
-    titleAr: 'أحذية السلامة الصناعية المقاومة للصدمات S3',
-    titleEn: 'Heavy-Duty Industrial Safety Footwear S3',
-    shortDescAr: 'أحذية سلامة هندسية بمقدمة فولاذية لحماية الأصابع ونعل مزدوج الكثافة مانع للانزلاق ومقاوم للاختراق والزيوت.',
+    titleAr: 'أحذية السلامة الصناعية الواقية بمواصفات S3 و S1B',
+    titleEn: 'Industrial Protective Safety Footwear S3 & S1B Certified',
+    shortDescAr: 'أحذية سلامة واقية معتمدة بمواصفات S3 و S1B بمقدمة فولاذية لحماية الأصابع ونعل مزدوج مانع للانزلاق والاختراق والزيوت.',
     shortDescEn: 'Premium industrial safety boots featuring steel/composite toe cap, puncture-resistant midsole, and oil-proof outsole.',
     longDescAr: 'صُممت أحذية السلامة لمجموعة العاصمة الجديدة لتلبي أقسى معايير الأمان الميداني في مشروعات التشييد والمصانع والبنية التحتية. تشمل الخيارات حماية كاملة للأصابع تتحمل صدمات حتى 200 جول، شريحة مانعة لاختراق المسامير، ونعل بولي يوريثان مقاوم للحرارة والتآكل والانزلاق (SRC).',
     longDescEn: 'Engineered for maximum foot protection across civil works, high-rise construction, and industrial fabrication. Built with treated split leather, breathable ergonomic lining, and certified anti-fatigue insole.',
@@ -150,7 +152,7 @@ export const initialProducts: Product[] = [
     materialAr: 'جلد طبيعي معالج / مقدمة فولاذية / نعل PU/PU مزدوج الكثافة',
     materialEn: 'Treated industrial leather / Steel toe / Dual-density PU outsole',
     standards: [
-      { name: 'EN ISO 20345:2011 S3 SRC', verified: true, documentRef: 'datasheets/shoe-s3-datasheet.pdf' },
+      { name: 'EN ISO 20345:2011 S3 / S1B / S1P SRC', verified: true, documentRef: 'datasheets/shoe-s3-datasheet.pdf' },
       { name: 'EEHC Standard EDMS Specification Reference', verified: true }
     ],
     specifications: [
@@ -680,6 +682,87 @@ export const initialProducts: Product[] = [
     ],
     applicationsAr: ['تمديدات الكابلات بالمصانع ومحطات الكهرباء', 'الأنفاق والمشروعات السكنية والإدارية الكبرى', 'غرف التحكم والموزعات الكهروميكانيكية'],
     applicationsEn: ['Factory raceways & power plants', 'Underground tunnels & high-rises', 'Control rooms & industrial switchgears'],
+    quoteEnabled: true,
+    published: true,
+    createdAt: '2026-01-10T08:00:00Z',
+    updatedAt: '2026-03-25T12:00:00Z'
+  },
+
+  // 15. الملابس الواقية من الأحماض والكيماويات
+  {
+    id: 'prod-15',
+    sku: 'NC-PPE-CH15',
+    titleAr: 'الملابس والبدل الواقية من الأحماض والكيماويات والسوائل الخطرة',
+    titleEn: 'Chemical, Acid & Hazardous Liquid Splash Protective Coveralls',
+    shortDescAr: 'بدل كاملة عازلة للأحماض والمواد الكيميائية مع غطاء رأس وخياطة ملحومة محكمة ومقاومة للرذاذ الكيميائي والبترولي.',
+    shortDescEn: 'Type 3/4/5 chemical protective coveralls offering liquid-tight and spray-tight barrier against aggressive acids and chemicals.',
+    longDescAr: 'توفر مجموعة العاصمة الجديدة حلول وقاية متقدمة للعاملين في بيئات الصناعات الكيميائية، محطات معالجة المياه، والمنشآت البترولية. صُنعت البدل من نسيج بوليمري متعدد الطبقات عازل للأحماض المركزة والمذيبات مع سحاب مزدوج محكم وأساور مطاطية تمنع تسرب السوائل.',
+    longDescEn: 'Engineered to shield operators against high-risk chemical splashes and toxic particulate exposure. Features reinforced seams and storm flap closure.',
+    categorySlug: 'ppe',
+    subcategorySlug: 'chemical-suits',
+    tag: 'CHEMICAL & ACID DEFENSE',
+    primaryImage: '/assets/product-chemical-suit.webp',
+    galleryImages: [],
+    imageAltAr: 'بدلة وقاية صفراء عازلة للأحماض والمواد الكيميائية مع قناع تنفس',
+    imageAltEn: 'Yellow chemical and acid protective coverall suit with respirator',
+    sourceType: 'company',
+    verificationStatus: 'verified',
+    availability: 'available',
+    brand: 'New Capital ChemSafe',
+    materialAr: 'نسيج بوليمري مصفح متعدد الطبقات مع خياطة حرارية ملحومة',
+    materialEn: 'Multi-layer laminated polymer fabric with ultrasonically sealed seams',
+    standards: [
+      { name: 'EN 14605 Type 3/4 Liquid-Tight Chemical Suit', verified: true },
+      { name: 'EN ISO 13982-1 Particulate Protection', verified: true }
+    ],
+    specifications: [
+      { keyAr: 'مستوى الحماية', keyEn: 'Protection Level', valueAr: 'عازل تام للسوائل ورذاذ الأحماض Type 3 & 4', valueEn: 'Type 3-B / 4-B liquid-tight' },
+      { keyAr: 'المقاسات المتاحة', keyEn: 'Sizes', valueAr: 'M, L, XL, XXL, 3XL', valueEn: 'M, L, XL, 2XL, 3XL' },
+      { keyAr: 'مقاومة الشد', keyEn: 'Tensile Strength', valueAr: 'نسيج مقوى ضد التمزق والاهتراء الكيميائي', valueEn: 'High tear & puncture resistance' }
+    ],
+    applicationsAr: ['مصانع الكيماويات ومحطات معالجة المياه', 'صناعات البترول والغاز والتكرير', 'مختبرات ومخازن المواد الخطرة'],
+    applicationsEn: ['Chemical plants & water treatment facilities', 'Petroleum refineries', 'Hazardous storage yards'],
+    quoteEnabled: true,
+    published: true,
+    createdAt: '2026-01-10T08:00:00Z',
+    updatedAt: '2026-03-25T12:00:00Z'
+  },
+
+  // 16. مهمات الوقاية من اللحام والحرارة المرتفعة والكهرباء
+  {
+    id: 'prod-16',
+    sku: 'NC-PPE-WL16',
+    titleAr: 'مهمات الوقاية من أعمال اللحام والحرارة المرتفعة ومخاطر الكهرباء',
+    titleEn: 'Welding, Heat-Resistant & Electrical Arc Flash Protection Gear',
+    shortDescAr: 'سترات جلدية معالجة، أقنعة لحام إلكترونية أوتوماتيكية، وقفازات عازلة للحرارة والشرر والجهد الكهربائي.',
+    shortDescEn: 'Heavy split leather welding apparel, auto-darkening helmets, and high-temperature arc-flash protective equipment.',
+    longDescAr: 'منظومة حماية متخصصة لأعمال اللحام والقطع الحراري وتجهيزات المحطات الكهربائية. تشمل جواكت وسترات جلد طبيعي مقاوم للاحتراق وتطاير الشرر، خوذات لحام بعدسات تظليل إلكترونية فورية، وقفازات معزولة تتحمل درجات حرارة تتجاوز 500 درجة مئوية مع عزل ضد الصدمات الكهربائية.',
+    longDescEn: 'Certified thermal and arc-flash personal equipment conforming to EN ISO 11611 and EN 407. Built for heavy structural welding and electrical fabrication.',
+    categorySlug: 'ppe',
+    subcategorySlug: 'welding-heat-electric',
+    tag: 'WELDING & HEAT PROTECTION',
+    primaryImage: '/assets/product-welding-heat.webp',
+    galleryImages: [],
+    imageAltAr: 'جاكيت لحام جلد طبيعي مع قناع لحام إلكتروني وقفازات عازلة للحرارة',
+    imageAltEn: 'Leather welding jacket, auto-darkening welding helmet, and heat gloves',
+    sourceType: 'company',
+    verificationStatus: 'verified',
+    availability: 'available',
+    brand: 'New Capital ThermoShield',
+    materialAr: 'جلد بقري مدبوغ ثقيل معالج ضد اللهب / ألياف كيفلار / بولي كربونات كهربائي',
+    materialEn: 'Heavy-duty split cowhide / Kevlar stitching / Dielectric polycarbonate',
+    standards: [
+      { name: 'EN ISO 11611 Protective Clothing for Welding', verified: true },
+      { name: 'EN 407 Thermal Hazards Protection', verified: true },
+      { name: 'EN 60903 Live Working Electrical Gloves Reference', verified: true }
+    ],
+    specifications: [
+      { keyAr: 'مقاومة الحرارة', keyEn: 'Heat Resistance', valueAr: 'مقاومة شرر وتلامس حراري حتى 500° مئوية', valueEn: 'Contact heat resistance up to 500°C' },
+      { keyAr: 'قناع اللحام', keyEn: 'Helmet Optic', valueAr: 'تظليل تلقائي DIN 9-13 مع استجابة 1/25000 ثانية', valueEn: 'Auto-darkening shade DIN 9-13' },
+      { keyAr: 'العزل الكهربائي', keyEn: 'Electrical Insulation', valueAr: 'قفازات ومهمات عازلة طبقاً للمواصفة EN 60903', valueEn: 'Dielectric insulation to EN 60903' }
+    ],
+    applicationsAr: ['أعمال اللحام الإنشائي وهياكل الصلب', 'محطات توليد الطاقة والمحولات الكهربائية', 'المسابك وورش الحدادة والتشكيل الحراري'],
+    applicationsEn: ['Structural steel welding', 'Power substations & generator yards', 'Foundries & heavy workshops'],
     quoteEnabled: true,
     published: true,
     createdAt: '2026-01-10T08:00:00Z',
