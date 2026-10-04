@@ -2,75 +2,96 @@
 
 @layer base {
   :root {
-    --color-carbon-navy: #0B1720;
-    --color-slate-blue: #1D3440;
-    --color-warm-mineral: #D5C9B5;
-    --color-oxide-copper: #B8643F;
-    --color-signal-amber: #E5A72B;
-    --color-safety-mint: #A9C9B8;
-    --color-paper-white: #F4F1EA;
-    --color-ink: #12202A;
+    /* Architectural Field Atlas Light Palette */
+    --bg-limestone: #F3F0E9;
+    --surface-warm-white: #FBFAF6;
+    --text-charcoal: #1F292C;
+    --teal-deep: #123D40;
+    --teal-soft: #53787A;
+    --terracotta: #B96543;
+    --amber-safety: #D89B2B;
+    --sand-pale: #DCD3C5;
+    --sage-soft: #AEBFAE;
+    --text-muted: #687174;
   }
 
   body {
-    background-color: #0B1720;
-    color: #F4F1EA;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans Arabic', 'IBM Plex Sans Arabic', sans-serif;
+    background-color: #F3F0E9;
+    color: #1F292C;
+    font-family: 'IBM Plex Sans Arabic', 'Noto Sans Arabic', 'Tajawal', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
 
-  /* Custom Scrollbar */
+  /* Custom Light Scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #0B1720;
+    background: #F3F0E9;
   }
   ::-webkit-scrollbar-thumb {
-    background: #1D3440;
-    border-radius: 4px;
-    border: 1px solid #B8643F/30;
+    background: #DCD3C5;
+    border-radius: 9999px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #B8643F;
+    background: #B96543;
   }
 }
 
-/* Industrial Editorial Signatures & Explicit Soft Curvature */
-.industrial-border {
-  border: 1px solid rgba(213, 201, 181, 0.15);
-  border-radius: 1rem;
+/* Architectural Card & Panel Borders */
+.arch-card {
+  background-color: #FBFAF6;
+  border: 1px solid #DCD3C5;
+  border-radius: 1.25rem;
 }
 
-.protection-line {
+.arch-panel {
+  background-color: #FBFAF6;
+  border: 1px solid #DCD3C5;
+  border-radius: 1.5rem;
+}
+
+/* Circular line icon container */
+.icon-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 9999px;
+  border: 1.5px solid #DCD3C5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.icon-circle.active,
+.icon-circle:hover {
+  border-color: #B96543;
+  background-color: rgba(185, 101, 67, 0.08);
+  color: #B96543;
+}
+
+/* Editorial line indicator */
+.editorial-line {
   position: relative;
 }
-.protection-line::after {
+.editorial-line::after {
   content: '';
   position: absolute;
   bottom: -6px;
   left: 0;
-  width: 48px;
+  width: 44px;
   height: 3px;
   border-radius: 9999px;
-  background-color: #E5A72B;
+  background-color: #B96543;
 }
-[dir="rtl"] .protection-line::after {
+[dir="rtl"] .editorial-line::after {
   left: auto;
   right: 0;
 }
 
-/* Explicitly rounded buttons without sharp notches */
-.signal-notch {
-  border-radius: 9999px !important;
-}
-[dir="rtl"] .signal-notch {
-  border-radius: 9999px !important;
-}
-
-/* Global Smooth Curvature Enforcement: All images, cards, and interactive elements */
+/* Image Curvature */
 img {
   border-radius: 1rem;
 }
@@ -78,28 +99,3 @@ img {
 button, input, select, textarea {
   border-radius: 0.75rem;
 }
-
-.rounded {
-  border-radius: 0.75rem !important;
-}
-
-.rounded-md {
-  border-radius: 0.875rem !important;
-}
-
-.rounded-lg {
-  border-radius: 1rem !important;
-}
-
-.rounded-xl {
-  border-radius: 1.25rem !important;
-}
-
-.rounded-2xl {
-  border-radius: 1.5rem !important;
-}
-
-.rounded-3xl {
-  border-radius: 2rem !important;
-}
-

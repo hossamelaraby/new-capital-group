@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { useData } from '../context/DataContext';
-import { Search, Filter, FileDown, ArrowRight, ArrowLeft, CheckCircle, Plus } from 'lucide-react';
+import { Search, FileDown, ArrowRight, ArrowLeft, CheckCircle, Plus } from 'lucide-react';
 
 export const Products: React.FC = () => {
   const { lang, products, categories, addToQuoteBasket } = useData();
@@ -39,18 +39,18 @@ export const Products: React.FC = () => {
   }, [products, currentCategory, selectedSubcategory, searchQuery]);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 space-y-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 space-y-8 bg-[#F3F0E9] text-[#1F292C]">
       {/* Page Header */}
-      <div className="space-y-3 border-b border-[#D5C9B5]/15 pb-6">
-        <div className="flex items-center gap-2 text-xs font-mono text-[#E5A72B]">
-          <span>NC // CATALOGUE INDEX</span>
+      <div className="space-y-3 border-b border-[#DCD3C5] pb-6">
+        <div className="flex items-center gap-2 text-xs font-mono text-[#B96543] font-bold">
+          <span>CATALOGUE INDEX</span>
           <span>•</span>
           <span>{filteredProducts.length} {isAr ? 'بنود معتمدة' : 'Verified Items'}</span>
         </div>
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-white">
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-[#123D40]">
           {isAr ? 'دليل منتجات السلامة والتوريدات الميدانية' : 'Industrial Safety & Worksite Supplies Catalogue'}
         </h1>
-        <p className="text-sm text-[#D5C9B5]/80 max-w-3xl leading-relaxed">
+        <p className="text-sm text-[#687174] max-w-3xl leading-relaxed">
           {isAr
             ? 'تصفح تشكيلات مهمات الوقاية، اللوحات الإرشادية، أشرطة المرافق المدفونة، ومستلزمات المواقع مع المواصفات الفنية وروابط الـ Data Sheet الرسمية.'
             : 'Explore approved personal protective equipment, safety signage, underground utility warning tapes, and site lighting solutions with downloadable engineering datasheets.'
@@ -62,13 +62,13 @@ export const Products: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
         {/* Search Input */}
         <div className="lg:col-span-5 relative">
-          <Search className="w-4 h-4 text-[#D5C9B5]/50 absolute top-3.5 right-3.5 rtl:right-3.5 rtl:left-auto ltr:left-3.5 ltr:right-auto" />
+          <Search className="w-4 h-4 text-[#687174] absolute top-3.5 right-3.5 rtl:right-3.5 rtl:left-auto ltr:left-3.5 ltr:right-auto" />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder={isAr ? 'ابحث باسم المنتج، كود SKU، أو نوع المهمة...' : 'Search by title, SKU, or specification...'}
-            className="w-full bg-[#12202A] border border-[#D5C9B5]/20 rounded-lg py-2.5 px-10 text-xs text-white placeholder-[#D5C9B5]/40 focus:border-[#E5A72B] outline-none"
+            className="w-full bg-[#FBFAF6] border border-[#DCD3C5] rounded-xl py-2.5 px-10 text-xs text-[#1F292C] placeholder-[#687174]/60 focus:border-[#123D40] outline-none"
           />
         </div>
 
@@ -79,10 +79,10 @@ export const Products: React.FC = () => {
               setSearchParams({});
               setSelectedSubcategory('all');
             }}
-            className={`px-3 py-1.5 rounded text-xs font-medium transition-colors ${
+            className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-colors ${
               currentCategory === 'all'
-                ? 'bg-[#E5A72B] text-[#0B1720] font-bold'
-                : 'bg-[#1D3440] text-[#D5C9B5] hover:bg-[#274657]'
+                ? 'bg-[#123D40] text-white'
+                : 'bg-[#FBFAF6] text-[#687174] border border-[#DCD3C5] hover:border-[#123D40]'
             }`}
           >
             {isAr ? 'الكل (All)' : 'All Products'}
@@ -95,10 +95,10 @@ export const Products: React.FC = () => {
                 setSearchParams({ category: cat.slug });
                 setSelectedSubcategory('all');
               }}
-              className={`px-3 py-1.5 rounded text-xs font-medium transition-colors ${
+              className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-colors ${
                 currentCategory === cat.slug
-                  ? 'bg-[#E5A72B] text-[#0B1720] font-bold'
-                  : 'bg-[#1D3440] text-[#D5C9B5] hover:bg-[#274657]'
+                  ? 'bg-[#123D40] text-white'
+                  : 'bg-[#FBFAF6] text-[#687174] border border-[#DCD3C5] hover:border-[#123D40]'
               }`}
             >
               {isAr ? cat.nameAr : cat.nameEn}
@@ -109,14 +109,14 @@ export const Products: React.FC = () => {
 
       {/* Subcategory Pills if category active */}
       {activeCategoryObj && activeCategoryObj.subcategories.length > 0 && (
-        <div className="flex items-center gap-2 overflow-x-auto pb-2 text-xs border-b border-[#D5C9B5]/10">
-          <span className="text-[#D5C9B5]/60 font-mono text-[11px] shrink-0">
+        <div className="flex items-center gap-2 overflow-x-auto pb-2 text-xs border-b border-[#DCD3C5]">
+          <span className="text-[#687174] font-mono text-[11px] shrink-0 font-medium">
             {isAr ? 'التصنيف الفرعي:' : 'Subcategory:'}
           </span>
           <button
             onClick={() => setSelectedSubcategory('all')}
-            className={`px-2.5 py-1 rounded text-[11px] font-medium shrink-0 ${
-              selectedSubcategory === 'all' ? 'bg-[#B8643F] text-white' : 'bg-[#0B1720] text-[#D5C9B5]/80 hover:text-white'
+            className={`px-3 py-1 rounded-full text-[11px] font-semibold shrink-0 ${
+              selectedSubcategory === 'all' ? 'bg-[#B96543] text-white' : 'bg-[#FBFAF6] text-[#687174] border border-[#DCD3C5] hover:text-[#123D40]'
             }`}
           >
             {isAr ? 'كافة البنود' : 'All Subcategories'}
@@ -125,8 +125,8 @@ export const Products: React.FC = () => {
             <button
               key={sub.slug}
               onClick={() => setSelectedSubcategory(sub.slug)}
-              className={`px-2.5 py-1 rounded text-[11px] font-medium shrink-0 ${
-                selectedSubcategory === sub.slug ? 'bg-[#B8643F] text-white' : 'bg-[#0B1720] text-[#D5C9B5]/80 hover:text-white'
+              className={`px-3 py-1 rounded-full text-[11px] font-semibold shrink-0 ${
+                selectedSubcategory === sub.slug ? 'bg-[#B96543] text-white' : 'bg-[#FBFAF6] text-[#687174] border border-[#DCD3C5] hover:text-[#123D40]'
               }`}
             >
               {isAr ? sub.nameAr : sub.nameEn}
@@ -137,8 +137,8 @@ export const Products: React.FC = () => {
 
       {/* Products Grid */}
       {filteredProducts.length === 0 ? (
-        <div className="p-12 text-center rounded-lg bg-[#12202A] border border-[#D5C9B5]/15 space-y-4">
-          <p className="text-white text-base">
+        <div className="p-12 text-center rounded-2xl bg-[#FBFAF6] border border-[#DCD3C5] space-y-4">
+          <p className="text-[#1F292C] text-base font-medium">
             {isAr ? 'لم يتم العثور على منتجات تطابق معايير البحث الحالية.' : 'No products matched your search or filter criteria.'}
           </p>
           <button
@@ -147,7 +147,7 @@ export const Products: React.FC = () => {
               setSearchParams({});
               setSelectedSubcategory('all');
             }}
-            className="px-4 py-2 rounded bg-[#1D3440] text-xs text-[#E5A72B] hover:bg-[#284757]"
+            className="px-4 py-2 rounded-full bg-[#123D40] text-xs text-white hover:bg-[#1a4f53]"
           >
             {isAr ? 'إعادة ضبط التصفية' : 'Reset All Filters'}
           </button>
@@ -157,19 +157,19 @@ export const Products: React.FC = () => {
           {filteredProducts.map(prod => (
             <div
               key={prod.id}
-              className="rounded-lg bg-[#12202A] border border-[#D5C9B5]/15 hover:border-[#E5A72B]/60 transition-all flex flex-col justify-between overflow-hidden group shadow-md"
+              className="rounded-2xl bg-[#FBFAF6] border border-[#DCD3C5] hover:border-[#123D40] transition-all flex flex-col justify-between overflow-hidden shadow-sm"
             >
               {/* Product Visual */}
-              <div className="h-52 overflow-hidden relative bg-[#0B1720]">
+              <div className="h-52 overflow-hidden relative bg-[#F3F0E9]">
                 <img
-                  src={prod.primaryImage}
+                  src={prod.primaryImage.replace('/assets/', '/assets/').replace('.webp', '.webp')}
                   alt={isAr ? prod.titleAr : prod.titleEn}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover rounded-t-2xl hover:scale-105 transition-transform duration-500"
                 />
-                <span className="absolute top-2 right-2 px-2 py-0.5 rounded bg-[#0B1720]/80 text-[10px] font-mono text-[#E5A72B] border border-[#D5C9B5]/20">
+                <span className="absolute top-2.5 right-2.5 px-2.5 py-0.5 rounded-full bg-[#FBFAF6]/90 text-[10px] font-mono text-[#123D40] font-bold border border-[#DCD3C5]">
                   {prod.sku}
                 </span>
-                <span className="absolute bottom-2 left-2 px-1.5 py-0.5 rounded bg-emerald-950/80 text-emerald-400 text-[10px] font-mono border border-emerald-500/30">
+                <span className="absolute bottom-2.5 left-2.5 px-2 py-0.5 rounded-full bg-[#123D40]/10 text-[#123D40] text-[10px] font-mono font-bold border border-[#123D40]/20">
                   {prod.verificationStatus.toUpperCase()}
                 </span>
               </div>
@@ -177,30 +177,30 @@ export const Products: React.FC = () => {
               {/* Product Meta */}
               <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
                 <div>
-                  <span className="text-[10px] font-mono text-[#B8643F] uppercase block tracking-wider">
+                  <span className="text-[10px] font-mono text-[#B96543] font-bold uppercase block tracking-wider">
                     {prod.tag}
                   </span>
                   <Link
                     to={`/products/${prod.categorySlug}/${prod.id}`}
-                    className="block text-base font-bold text-white group-hover:text-[#E5A72B] transition-colors mt-1"
+                    className="block text-base font-bold text-[#123D40] hover:text-[#B96543] transition-colors mt-1 line-clamp-1"
                   >
                     {isAr ? prod.titleAr : prod.titleEn}
                   </Link>
-                  <p className="text-xs text-[#D5C9B5]/75 mt-2 line-clamp-2 leading-relaxed">
+                  <p className="text-xs text-[#687174] mt-2 line-clamp-2 leading-relaxed">
                     {isAr ? prod.shortDescAr : prod.shortDescEn}
                   </p>
                 </div>
 
                 {/* Technical Highlights */}
-                <div className="pt-3 border-t border-[#D5C9B5]/10 space-y-2 text-xs">
-                  <div className="text-[11px] text-[#D5C9B5]/60 flex items-center justify-between">
+                <div className="pt-3 border-t border-[#DCD3C5] space-y-2 text-xs">
+                  <div className="text-[11px] text-[#687174] flex items-center justify-between">
                     <span>{isAr ? 'الخامة والتصنيع:' : 'Material Spec:'}</span>
-                    <span className="text-white truncate max-w-[150px]">{isAr ? prod.materialAr : prod.materialEn}</span>
+                    <span className="text-[#1F292C] font-medium truncate max-w-[140px]">{isAr ? prod.materialAr : prod.materialEn}</span>
                   </div>
 
                   {prod.standards.length > 0 && (
-                    <div className="text-[11px] text-emerald-400 flex items-center gap-1 font-mono">
-                      <CheckCircle className="w-3 h-3" />
+                    <div className="text-[11px] text-[#123D40] flex items-center gap-1 font-mono font-medium">
+                      <CheckCircle className="w-3 h-3 text-[#B96543]" />
                       <span className="truncate">{prod.standards[0].name}</span>
                     </div>
                   )}
@@ -209,14 +209,14 @@ export const Products: React.FC = () => {
                   <div className="pt-2 flex items-center gap-2">
                     <Link
                       to={`/products/${prod.categorySlug}/${prod.id}`}
-                      className="flex-1 text-center py-2 px-3 rounded bg-[#1D3440] hover:bg-[#284757] text-white text-xs font-medium transition-colors"
+                      className="flex-1 text-center py-2 px-3 rounded-full bg-[#123D40] hover:bg-[#1a4f53] text-white text-xs font-semibold transition-colors"
                     >
                       {isAr ? 'المواصفة والتفاصيل' : 'Full Specifications'}
                     </Link>
 
                     <button
                       onClick={() => addToQuoteBasket(prod)}
-                      className="p-2 rounded bg-[#E5A72B] hover:bg-[#ffbe3b] text-[#0B1720] transition-colors"
+                      className="p-2 rounded-full bg-[#B96543] hover:bg-[#a55636] text-white transition-colors"
                       title={isAr ? 'إضافة إلى طلب عرض السعر' : 'Add to Quote Request'}
                     >
                       <Plus className="w-4 h-4 stroke-[2.5]" />
@@ -227,8 +227,8 @@ export const Products: React.FC = () => {
                         href={prod.datasheetUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="p-2 rounded bg-[#0B1720] border border-[#D5C9B5]/20 text-[#D5C9B5] hover:text-white hover:border-[#E5A72B] transition-colors"
-                        title={isAr ? 'تحميل الـ Data Sheet' : 'Download Datasheet'}
+                        className="p-2 rounded-full bg-[#FBFAF6] border border-[#DCD3C5] text-[#123D40] hover:border-[#123D40] transition-colors"
+                        title={isAr ? 'تحميل المواصفة الفنية' : 'Download Datasheet'}
                       >
                         <FileDown className="w-4 h-4" />
                       </a>
@@ -240,17 +240,6 @@ export const Products: React.FC = () => {
           ))}
         </div>
       )}
-
-      {/* Engineering Disclaimer */}
-      <div className="p-4 rounded bg-[#0B1720] border border-[#D5C9B5]/15 text-xs text-[#D5C9B5]/70 flex items-start gap-2">
-        <CheckCircle className="w-4 h-4 text-[#E5A72B] shrink-0 mt-0.5" />
-        <span>
-          {isAr
-            ? 'تنويه فني: تخضع المقاسات والموديلات والألوان والشهادات للاعتماد المسبق من الاستشاري والمقاول وفق متطلبات الموقع وعينات العرض الفني.'
-            : 'Technical Note: Exact dimensions, models, colors, and certifications are confirmed upon submittal of approved physical samples and technical offers.'
-          }
-        </span>
-      </div>
     </div>
   );
 };

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useData } from '../context/DataContext';
 import { 
-  Shield, 
   Menu, 
   X, 
   Globe, 
@@ -10,8 +9,9 @@ import {
   Phone, 
   ShoppingBag,
   SlidersHorizontal,
-  ChevronDown,
-  ExternalLink
+  Search,
+  MapPin,
+  ShieldCheck
 } from 'lucide-react';
 
 export const Header: React.FC = () => {
@@ -35,55 +35,61 @@ export const Header: React.FC = () => {
   const totalBasketCount = quoteBasket.length;
 
   return (
-    <header className="sticky top-0 z-50 bg-[#0B1720]/95 backdrop-blur-md border-b border-[#D5C9B5]/15 text-[#F4F1EA]">
-      {/* Top Utility Technical Rail */}
-      <div className="hidden lg:block bg-[#1D3440]/60 border-b border-[#D5C9B5]/10 text-xs py-1.5 px-6">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-6 text-[#D5C9B5]/80">
-            <span className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              {isAr ? 'توريدات معتمدة للمشروعات القومية والصناعية' : 'Certified Supplies for Major Infrastructure & Industrial Sites'}
+    <header className="sticky top-0 z-50 bg-[#FBFAF6] border-b border-[#DCD3C5] text-[#1F292C]">
+      {/* 6.2 Top Minimal Utility Bar */}
+      <div className="border-b border-[#DCD3C5]/70 bg-[#F3F0E9] text-xs py-1.5 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto flex items-center justify-between text-[#687174]">
+          <div className="flex items-center gap-4 text-[11px] sm:text-xs">
+            <span className="flex items-center gap-1">
+              <MapPin className="w-3.5 h-3.5 text-[#B96543]" />
+              <span>Cairo / Egypt</span>
             </span>
-            <span className="hidden xl:inline text-[#D5C9B5]/40">•</span>
-            <span className="hidden xl:flex items-center gap-1">
-              <span>{isAr ? 'سجل تجاري وترخيص توريدات عمومية' : 'General Supplies Spec ISO 9001 & 14001'}</span>
+            <span>•</span>
+            <span className="font-medium text-[#123D40]">
+              {isAr ? 'توريد مستلزمات الأمن الصناعي' : 'Industrial Safety Supply'}
+            </span>
+            <span className="hidden md:inline">•</span>
+            <span className="hidden md:inline text-[#687174]">
+              {isAr ? 'توريدات المشروعات B2B' : 'B2B / Project Supply'}
             </span>
           </div>
 
-          <div className="flex items-center gap-4 text-xs">
+          <div className="flex items-center gap-4 text-[11px] sm:text-xs">
             <a 
               href={`tel:${settings.landline}`} 
-              className="flex items-center gap-1.5 text-[#D5C9B5]/90 hover:text-[#E5A72B] transition-colors"
+              className="hidden sm:flex items-center gap-1.5 text-[#1F292C] hover:text-[#B96543] transition-colors"
             >
-              <Phone className="w-3.5 h-3.5 text-[#E5A72B]" />
+              <Phone className="w-3 h-3 text-[#B96543]" />
               <span dir="ltr">{settings.landline}</span>
             </a>
-            <span className="text-[#D5C9B5]/30">|</span>
+            <span className="hidden sm:inline text-[#DCD3C5]">|</span>
             <Link 
               to="/admin" 
-              className="flex items-center gap-1 text-[#D5C9B5]/70 hover:text-white transition-colors"
+              className="flex items-center gap-1 text-[#687174] hover:text-[#123D40] transition-colors"
               title="لوحة الإدارة والتحكم"
             >
-              <SlidersHorizontal className="w-3.5 h-3.5 text-[#B8643F]" />
-              <span>{isAr ? 'لوحة التحكم (CMS)' : 'Admin CMS'}</span>
+              <SlidersHorizontal className="w-3 h-3 text-[#53787A]" />
+              <span>{isAr ? 'لوحة التحكم' : 'Admin'}</span>
             </Link>
           </div>
         </div>
       </div>
 
-      {/* Main Navigation Bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-        {/* Brand Lockup */}
+      {/* Main Architectural Navigation Bar */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
+        {/* Brand Lockup with the New Eye-of-Horus / Triangle Logo */}
         <Link to="/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded bg-[#1D3440] border border-[#E5A72B]/40 flex items-center justify-center text-[#E5A72B] shadow-inner group-hover:border-[#E5A72B] transition-colors">
-            <Shield className="w-6 h-6 stroke-[1.8]" />
-          </div>
+          <img 
+            src="/assets/logo.png" 
+            alt="New Capital Group Logo" 
+            className="w-11 h-11 object-contain shrink-0 group-hover:scale-105 transition-transform"
+          />
           <div className="flex flex-col">
-            <span className="font-bold tracking-tight text-lg text-white group-hover:text-[#E5A72B] transition-colors">
+            <span className="font-extrabold text-base sm:text-lg text-[#123D40] tracking-tight group-hover:text-[#B96543] transition-colors">
               {isAr ? 'مجموعة العاصمة الجديدة' : 'NEW CAPITAL GROUP'}
             </span>
-            <span className="text-[10px] tracking-widest uppercase text-[#D5C9B5]/70 -mt-0.5">
-              {isAr ? 'للتوريدات العمومية والسلامة الصناعية' : 'GENERAL SUPPLIES & INDUSTRIAL SAFETY'}
+            <span className="text-[10px] sm:text-[11px] font-semibold text-[#687174] tracking-wider uppercase -mt-0.5">
+              {isAr ? 'مستلزمات الأمن الصناعي ومهمات الوقاية' : 'INDUSTRIAL SAFETY & PPE SUPPLIES'}
             </span>
           </div>
         </Link>
@@ -96,10 +102,10 @@ export const Header: React.FC = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`px-3 py-1.5 rounded text-sm font-medium transition-all ${
+                className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${
                   isActive 
-                    ? 'text-[#E5A72B] bg-[#1D3440]/60 border border-[#E5A72B]/30' 
-                    : 'text-[#F4F1EA]/80 hover:text-white hover:bg-white/5'
+                    ? 'text-white bg-[#123D40]' 
+                    : 'text-[#1F292C] hover:text-[#B96543] hover:bg-[#F3F0E9]'
                 }`}
               >
                 {isAr ? link.labelAr : link.labelEn}
@@ -110,26 +116,26 @@ export const Header: React.FC = () => {
 
         {/* Action Controls & Language Toggle */}
         <div className="flex items-center gap-2 sm:gap-3">
-          {/* Language Toggle Button */}
+          {/* Language Toggle */}
           <button
             onClick={() => setLang(isAr ? 'en' : 'ar')}
-            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded border border-[#D5C9B5]/20 text-xs font-medium hover:border-[#E5A72B] hover:text-[#E5A72B] transition-colors"
+            className="flex items-center gap-1 px-3 py-1.5 rounded-full border border-[#DCD3C5] bg-[#FBFAF6] text-xs font-bold text-[#1F292C] hover:border-[#B96543] hover:text-[#B96543] transition-colors"
             title={isAr ? 'Switch to English' : 'التحويل إلى العربية'}
           >
-            <Globe className="w-3.5 h-3.5 text-[#E5A72B]" />
+            <Globe className="w-3.5 h-3.5 text-[#53787A]" />
             <span>{isAr ? 'EN' : 'العربية'}</span>
           </button>
 
           {/* Quote Basket Shortcut */}
           <Link
             to="/request-a-quote"
-            className="relative flex items-center gap-2 px-3 py-1.5 rounded bg-[#1D3440] border border-[#D5C9B5]/25 text-xs text-[#F4F1EA] hover:border-[#E5A72B] transition-colors"
-            title={isAr ? 'قائمة عروض الأسعار' : 'Quote Request List'}
+            className="relative flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#DCD3C5] bg-[#FBFAF6] text-xs font-bold text-[#1F292C] hover:border-[#123D40] transition-colors"
+            title={isAr ? 'قائمة طلب عرض السعر' : 'Project Quote Request'}
           >
-            <ShoppingBag className="w-4 h-4 text-[#E5A72B]" />
+            <ShoppingBag className="w-4 h-4 text-[#123D40]" />
             <span className="hidden sm:inline">{isAr ? 'طلب التوريد' : 'Quote'}</span>
             {totalBasketCount > 0 && (
-              <span className="w-5 h-5 rounded-full bg-[#E5A72B] text-[#0B1720] font-bold text-[11px] flex items-center justify-center">
+              <span className="w-4 h-4 rounded-full bg-[#B96543] text-white font-bold text-[10px] flex items-center justify-center">
                 {totalBasketCount}
               </span>
             )}
@@ -138,16 +144,16 @@ export const Header: React.FC = () => {
           {/* Primary Request Quote CTA */}
           <Link
             to="/request-a-quote"
-            className="hidden sm:flex items-center gap-1.5 px-4 py-1.5 rounded bg-[#E5A72B] text-[#0B1720] text-xs font-bold hover:bg-[#ffbe3b] transition-all shadow-md signal-notch"
+            className="hidden sm:flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#123D40] text-white text-xs font-bold hover:bg-[#1a4f53] transition-all shadow-sm"
           >
             <FileText className="w-3.5 h-3.5" />
-            <span>{isAr ? 'اطلب عرض سعر' : 'Request Quote'}</span>
+            <span>{isAr ? 'طلب عرض توريد للمشروع' : 'Request Supply Plan'}</span>
           </Link>
 
           {/* Mobile Menu Toggle Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded text-[#D5C9B5] hover:text-white hover:bg-white/5"
+            className="lg:hidden p-2 rounded-lg text-[#1F292C] hover:bg-[#F3F0E9]"
             aria-label="القائمة الرئيسية"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -157,7 +163,7 @@ export const Header: React.FC = () => {
 
       {/* Mobile Drawer Navigation */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#0B1720] border-b border-[#D5C9B5]/20 px-4 pt-2 pb-6 space-y-2">
+        <div className="lg:hidden bg-[#FBFAF6] border-b border-[#DCD3C5] px-4 pt-2 pb-6 space-y-2">
           {navLinks.map((link) => {
             const isActive = location.pathname === link.path;
             return (
@@ -165,30 +171,22 @@ export const Header: React.FC = () => {
                 key={link.path}
                 to={link.path}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`block px-3 py-2 rounded text-sm font-medium ${
-                  isActive 
-                    ? 'text-[#E5A72B] bg-[#1D3440] border-r-4 border-[#E5A72B]' 
-                    : 'text-[#F4F1EA]/80 hover:bg-white/5'
+                className={`block px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${
+                  isActive ? 'bg-[#123D40] text-white' : 'text-[#1F292C] hover:bg-[#F3F0E9]'
                 }`}
               >
                 {isAr ? link.labelAr : link.labelEn}
               </Link>
             );
           })}
-          <div className="pt-3 border-t border-[#D5C9B5]/15 flex flex-col gap-2">
+
+          <div className="pt-3 border-t border-[#DCD3C5] flex flex-col gap-2">
             <Link
               to="/request-a-quote"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full text-center py-2.5 rounded bg-[#E5A72B] text-[#0B1720] font-bold text-sm"
+              className="w-full py-2.5 rounded-full bg-[#123D40] text-white text-xs font-bold text-center block shadow-sm"
             >
-              {isAr ? 'طلب عرض سعر للمشروع' : 'Request Project Quote'}
-            </Link>
-            <Link
-              to="/admin"
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-full text-center py-2 rounded bg-[#1D3440] text-xs text-[#D5C9B5]"
-            >
-              {isAr ? 'الدخول إلى لوحة التحكم (CMS)' : 'Admin CMS Portal'}
+              {isAr ? 'اطلب عرض توريد للمشروع' : 'Request a Project Supply Plan'}
             </Link>
           </div>
         </div>
