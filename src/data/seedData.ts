@@ -31,7 +31,7 @@ export const initialCategories: Category[] = [
     descAr: 'معدات حماية متكاملة للأفراد تشمل أحذية السلامة المهنية، السترات العاكسة، قفازات العمل الميكانيكية، وخوذات حماية الرأس.',
     descEn: 'Certified personal protective equipment engineered for civil construction, heavy industries, and site engineering.',
     iconName: 'Shield',
-    image: '/assets/safety-protection.jpg', // Verified correct PPE hero category image
+    image: '/assets/02-category-ppe.webp', // Verified correct PPE hero category image
     published: true,
     order: 1,
     subcategories: [
@@ -49,7 +49,7 @@ export const initialCategories: Category[] = [
     descAr: 'لوحات المنع، التحذير من المخاطر، إلزام مهمات الوقاية، ولوحات مسارات الإخلاء والطوارئ مطابقة لمواصفات ISO 7010 والكود المصري.',
     descEn: 'Durable rigid PVC, aluminum, and reflective safety signage boards for industrial hazard control.',
     iconName: 'AlertTriangle',
-    image: '/assets/evacuation-signs.jpg', // Verified correct Safety Signs Category image
+    image: '/assets/04-category-safety-signs.webp', // Verified correct Safety Signs Category image
     published: true,
     order: 2,
     subcategories: [
@@ -66,7 +66,7 @@ export const initialCategories: Category[] = [
     descAr: 'أشرطة تحذيرية مدفونة قابلة للكشف (Detectable Warning Tape)، محددات مسارات العمل، وحواجز تأمين شبكات الكهرباء والغاز والمياه.',
     descEn: 'Subterranean detectable warning tapes, traffic cones, delineators, and utility trench protection.',
     iconName: 'Construction',
-    image: '/assets/warning-tapes.jpg', // Verified correct Underground Tapes category image
+    image: '/assets/13-detectable-warning-tape.webp', // Verified correct Underground Tapes category image
     published: true,
     order: 3,
     subcategories: [
@@ -82,7 +82,7 @@ export const initialCategories: Category[] = [
     descAr: 'لوحات فوسفورية مضيئة لتحديد معدات الإطفاء ومخارج الطوارئ، ومستلزمات مكافحة الحريق الميدانية لتأمين المنشآت والمشروعات.',
     descEn: 'Photoluminescent fire equipment locator signs, emergency wayfinding, and approved site-readiness supplies.',
     iconName: 'Flame',
-    image: '/assets/fire-signs.jpg', // Verified correct Fire Safety category image
+    image: '/assets/03-category-fire-protection.webp', // Verified correct Fire Safety category image
     published: true,
     order: 4,
     subcategories: [
@@ -98,7 +98,7 @@ export const initialCategories: Category[] = [
     descAr: 'كشافات ليد شمسية مستقلة للواجهات وأسوار المشروعات المؤقتة والمواقع الإنشائية النائية ببطاريات فوسفات الليثيوم LiFePO4.',
     descEn: 'High-power solar floodlights and off-grid luminaires for project perimeters and contractor base camps.',
     iconName: 'Sun',
-    image: '/assets/solar-lights.jpg', // Verified correct Solar Lights category image
+    image: '/assets/05-category-solar-lighting.webp', // Verified correct Solar Lights category image
     published: true,
     order: 5,
     subcategories: [
@@ -114,7 +114,7 @@ export const initialCategories: Category[] = [
     descAr: 'مواسير معدنية مجلفنة ملونة EMT ومستلزماتها الفنية لمشروعات التمديدات (كتالوجات موردين معتمدة قيد المراجعة).',
     descEn: 'Metallic conduit systems, fittings, and industrial raceways (Supplier catalogs archived under review).',
     iconName: 'Zap',
-    image: '/assets/electrical-warning.jpg', // Verified correct electrical conduit image
+    image: '/assets/19-emt-reference-material.webp', // Verified correct electrical conduit image
     published: true,
     order: 6,
     subcategories: [
@@ -138,8 +138,8 @@ export const initialProducts: Product[] = [
     categorySlug: 'ppe',
     subcategorySlug: 'footwear',
     tag: 'C-ZAR • PPE FOOTWEAR',
-    primaryImage: '/assets/safety-footwear.jpg', // EXACT MATCH: safety-footwear.jpg
-    galleryImages: ['/assets/ppe-shoes.jpg', '/assets/safety-protection.jpg'],
+    primaryImage: '/assets/06-safety-footwear-product.webp', // EXACT MATCH: safety-footwear.jpg
+    galleryImages: ['/assets/02-category-ppe.webp'],
     imageAltAr: 'حذاء سلامة صناعي عالي التحمل للمهندسين والعمال',
     imageAltEn: 'Heavy duty safety footwear for industrial site',
     sourceType: 'company',
@@ -180,8 +180,8 @@ export const initialProducts: Product[] = [
     categorySlug: 'ppe',
     subcategorySlug: 'vests',
     tag: 'HIGH-VISIBILITY APPAREL',
-    primaryImage: '/assets/reflective-vest.jpg', // EXACT MATCH: reflective-vest.jpg
-    galleryImages: ['/assets/safety-vest.jpg'],
+    primaryImage: '/assets/08-reflective-vest-product.webp', // EXACT MATCH: reflective-vest.jpg
+    galleryImages: ['/assets/02-category-ppe.webp'],
     imageAltAr: 'سترة سلامة عاكسة فوسفورية لمواقع الطرق والإنشاءات',
     imageAltEn: 'Neon reflective high visibility safety vest',
     sourceType: 'company',
@@ -221,8 +221,8 @@ export const initialProducts: Product[] = [
     categorySlug: 'ppe',
     subcategorySlug: 'gloves',
     tag: 'HAND PROTECTION',
-    primaryImage: '/assets/safety-gloves.jpg', // EXACT MATCH: safety-gloves.jpg
-    galleryImages: ['/assets/safety-protection.jpg'],
+    primaryImage: '/assets/07-protective-gloves-product.webp', // EXACT MATCH: safety-gloves.jpg
+    galleryImages: ['/assets/09-hard-hat-eye-protection.webp'],
     imageAltAr: 'قفازات سلامة صناعية لمناولة المواد الإنشائية',
     imageAltEn: 'Reinforced industrial handling gloves',
     sourceType: 'company',
@@ -262,8 +262,8 @@ export const initialProducts: Product[] = [
     categorySlug: 'traffic-utilities',
     subcategorySlug: 'warning-tape',
     tag: 'UTILITY INFRASTRUCTURE',
-    primaryImage: '/assets/warning-tapes.jpg', // EXACT MATCH: warning-tapes.jpg
-    galleryImages: ['/assets/electrical-warning.jpg'],
+    primaryImage: '/assets/13-detectable-warning-tape.webp', // EXACT MATCH: warning-tapes.jpg
+    galleryImages: ['/assets/14-traffic-cones-barriers.webp'],
     imageAltAr: 'لفات أشرطة تحذيرية مدفونة قابلة للكشف لكابلات الكهرباء والمياه',
     imageAltEn: 'Rolls of detectable warning tape for underground cables',
     sourceType: 'company',
@@ -304,8 +304,8 @@ export const initialProducts: Product[] = [
     categorySlug: 'safety-signs',
     subcategorySlug: 'prohibition-warning',
     tag: 'HAZARD WARNING SIGNS',
-    primaryImage: '/assets/prohibition-signs.jpg', // EXACT MATCH: prohibition-signs.jpg
-    galleryImages: ['/assets/evacuation-signs.jpg'],
+    primaryImage: '/assets/04-category-safety-signs.webp', // EXACT MATCH: prohibition-signs.jpg
+    galleryImages: ['/assets/11-fire-safety-signage.webp'],
     imageAltAr: 'لوحات منع وتحذير موضعية للمشروعات والمنشآت',
     imageAltEn: 'Industrial warning and prohibition signboards',
     sourceType: 'company',
@@ -345,8 +345,8 @@ export const initialProducts: Product[] = [
     categorySlug: 'safety-signs',
     subcategorySlug: 'ppe-mandatory',
     tag: 'MANDATORY PPE DIRECTIVES',
-    primaryImage: '/assets/ppe-signs.jpg', // EXACT MATCH: ppe-signs.jpg
-    galleryImages: ['/assets/evacuation-signs.jpg'],
+    primaryImage: '/assets/09-hard-hat-eye-protection.webp', // EXACT MATCH: ppe-signs.jpg
+    galleryImages: ['/assets/02-category-ppe.webp'],
     imageAltAr: 'لوحات إلزام ارتداء خوذة وحذاء وسترة الأمان',
     imageAltEn: 'Mandatory PPE directive sign board',
     sourceType: 'company',
@@ -385,8 +385,8 @@ export const initialProducts: Product[] = [
     categorySlug: 'fire-safety',
     subcategorySlug: 'fire-signs',
     tag: 'LIFE SAFETY & FIRE',
-    primaryImage: '/assets/fire-signs.jpg', // EXACT MATCH: fire-signs.jpg
-    galleryImages: ['/assets/evacuation-signs.jpg'],
+    primaryImage: '/assets/10-fire-extinguisher-product.webp', // EXACT MATCH: fire-signs.jpg
+    galleryImages: ['/assets/11-fire-safety-signage.webp'],
     imageAltAr: 'لوحات إرشادية فوسفورية لمعدات الإطفاء ومخارج الطوارئ',
     imageAltEn: 'Photoluminescent fire equipment locator sign',
     sourceType: 'company',
@@ -426,8 +426,8 @@ export const initialProducts: Product[] = [
     categorySlug: 'solar-lighting',
     subcategorySlug: 'floodlights',
     tag: 'SOLAR INFRASTRUCTURE',
-    primaryImage: '/assets/solar-lights.jpg', // EXACT MATCH: solar-lights.jpg
-    galleryImages: ['/assets/campaign-home.jpg'],
+    primaryImage: '/assets/15-solar-floodlight-product.webp', // EXACT MATCH: solar-lights.jpg
+    galleryImages: ['/assets/16-solar-street-light-project.webp'],
     imageAltAr: 'كشافات إنارة شمسية متكاملة لأسوار المشروعات',
     imageAltEn: 'Commercial solar LED floodlight for worksite perimeters',
     sourceType: 'company',
@@ -468,8 +468,8 @@ export const initialProducts: Product[] = [
     categorySlug: 'safety-signs',
     subcategorySlug: 'evacuation-fire',
     tag: 'EVACUATION WAYFINDING',
-    primaryImage: '/assets/evacuation-signs.jpg', // EXACT MATCH: evacuation-signs.jpg
-    galleryImages: ['/assets/fire-signs.jpg'],
+    primaryImage: '/assets/12-emergency-exit-signage.webp', // EXACT MATCH: evacuation-signs.jpg
+    galleryImages: ['/assets/11-fire-safety-signage.webp'],
     imageAltAr: 'لوحات مخارج الطوارئ ومسارات الهروب الخضراء',
     imageAltEn: 'Green emergency exit route sign',
     sourceType: 'company',
@@ -506,8 +506,8 @@ export const initialProducts: Product[] = [
     categorySlug: 'electrical-conduit',
     subcategorySlug: 'emt-conduit',
     tag: 'ELECTRICAL CONDUIT SPEC',
-    primaryImage: '/assets/electrical-warning.jpg', // EXACT MATCH: electrical-warning.jpg
-    galleryImages: ['/assets/contact-profile.jpg'],
+    primaryImage: '/assets/19-emt-reference-material.webp', // EXACT MATCH: electrical-warning.jpg
+    galleryImages: ['/assets/20-quality-and-documentation.webp'],
     imageAltAr: 'مواسير كهربائية معدنية مجلفنة EMT لمشروعات التمديدات',
     imageAltEn: 'Galvanized EMT steel conduit for electrical wiring',
     sourceType: 'supplier',
@@ -547,7 +547,7 @@ export const initialProjects: ProjectReference[] = [
     scopeAr: 'توريد مهمات السلامة ومحددات مناطق العمل والأشرطة التحذيرية لمسارات التشييد.',
     scopeEn: 'Supply of site safety equipment, delineators, and warning tapes during construction works.',
     svgIcon: '/assets/project-monorail.svg',
-    image: '/assets/projects-1.jpg',
+    image: '/assets/18-project-site-safety.webp',
     publicDisplay: true,
     verificationNote: 'Included as reference project from company materials. Scope subject to contract validation.'
   },
@@ -565,7 +565,7 @@ export const initialProjects: ProjectReference[] = [
     scopeAr: 'مهمات الوقاية الشخصية، لوحات التوجيه، وشرائط تأمين شبكات الكهرباء والخدمات.',
     scopeEn: 'Supplies of PPE, safety signaling boards, and utility detection markers.',
     svgIcon: '/assets/project-high-speed.svg',
-    image: '/assets/projects-2.jpg',
+    image: '/assets/17-industrial-safety-warehouse.webp',
     publicDisplay: true,
     verificationNote: 'Listed in profile materials. Relationship classified as Reference Only.'
   },
@@ -583,7 +583,7 @@ export const initialProjects: ProjectReference[] = [
     scopeAr: 'توريد لوحات إرشادية متخصصة ومهمات وقاية للأعمال الإنشائية والمدنية التمهيدية.',
     scopeEn: 'Specialized industrial signage and PPE for preliminary civil and infrastructural works.',
     svgIcon: '/assets/project-el-dabaa.svg',
-    image: '/assets/projects-3.jpg',
+    image: '/assets/16-solar-street-light-project.webp',
     publicDisplay: true,
     verificationNote: 'Designated strictly as Reference / Target Supply under verification protocol.'
   },
@@ -601,7 +601,7 @@ export const initialProjects: ProjectReference[] = [
     scopeAr: 'تجهيزات ومهمات سلامة للمقاولين المنفذين للأعمال المدنية والتشطيبات.',
     scopeEn: 'Safety gear and work-zone supplies during interior and exterior civil execution.',
     svgIcon: '/assets/project-central-bank.svg',
-    image: '/assets/government-clients.jpg',
+    image: '/assets/20-quality-and-documentation.webp',
     publicDisplay: true,
     verificationNote: 'Reference project listed in company credentials.'
   },
@@ -619,7 +619,7 @@ export const initialProjects: ProjectReference[] = [
     scopeAr: 'سترات عاكسة، خوذات أمان، أحذية سلامة، وشبكات ولوحات تحذيرية.',
     scopeEn: 'Reflective vests, helmets, footwear, and safety boundary signs.',
     svgIcon: '/assets/project-new-alamein-towers.svg',
-    image: '/assets/projects-1.jpg',
+    image: '/assets/18-project-site-safety.webp',
     publicDisplay: true,
     verificationNote: 'Reference project from supplied archive.'
   },
@@ -637,7 +637,7 @@ export const initialProjects: ProjectReference[] = [
     scopeAr: 'كشافات إنارة شمسية، علامات خطر الكهرباء، وأشرطة حماية الكابلات.',
     scopeEn: 'Off-grid lighting luminaires, high-voltage safety signs, and cable protection markers.',
     svgIcon: '/assets/project-solar-energy.svg',
-    image: '/assets/projects-2.jpg',
+    image: '/assets/16-solar-street-light-project.webp',
     publicDisplay: true,
     verificationNote: 'Reference sector in supplied catalog.'
   }

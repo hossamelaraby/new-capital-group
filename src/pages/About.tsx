@@ -44,11 +44,11 @@ export const About: React.FC = () => {
           </p>
         </div>
 
-        <div className="lg:col-span-6 rounded-xl overflow-hidden border border-[#D5C9B5]/20 bg-[#12202A] p-2">
+        <div className="lg:col-span-6 rounded-2xl overflow-hidden border border-[#D5C9B5]/20 bg-[#12202A] p-2">
           <img
-            src="/assets/profile-cover.jpg"
+            src="/assets/20-quality-and-documentation.webp"
             alt={isAr ? 'الملف التعريفي لمجموعة العاصمة الجديدة' : 'New Capital Group Corporate Profile'}
-            className="w-full h-80 object-cover rounded-lg brightness-90"
+            className="w-full h-80 object-cover rounded-xl brightness-90"
           />
         </div>
       </div>

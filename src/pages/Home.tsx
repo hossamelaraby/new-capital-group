@@ -125,18 +125,18 @@ export const Home: React.FC = () => {
 
             {/* Right Visual & Technical Rail (Col 5) */}
             <div className="lg:col-span-5 space-y-4">
-              <div className="relative rounded-lg overflow-hidden border border-[#D5C9B5]/20 bg-[#12202A] shadow-2xl group">
+              <div className="relative rounded-2xl overflow-hidden border border-[#D5C9B5]/20 bg-[#12202A] shadow-2xl group">
                 <img 
-                  src="/assets/campaign-home.jpg" 
+                  src="/assets/01-hero-industrial-safety.webp" 
                   alt={isAr ? 'مجموعة العاصمة الجديدة للتوريدات' : 'New Capital Group Site Supplies'}
-                  className="w-full h-80 object-cover object-center group-hover:scale-105 transition-transform duration-700 brightness-90"
+                  className="w-full h-80 object-cover object-center rounded-2xl group-hover:scale-105 transition-transform duration-700 brightness-90"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1720] via-transparent to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1720] via-transparent to-transparent pointer-events-none rounded-2xl"></div>
 
-                <div className="absolute bottom-4 left-4 right-4 p-4 rounded bg-[#0B1720]/90 backdrop-blur-md border border-[#D5C9B5]/20 space-y-2">
+                <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-[#0B1720]/90 backdrop-blur-md border border-[#D5C9B5]/20 space-y-2">
                   <div className="flex items-center justify-between text-xs">
                     <span className="font-mono text-[#E5A72B]">NC // SITE SPECIFICATION</span>
-                    <span className="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-mono">ACTIVE SPEC</span>
+                    <span className="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full font-mono">ACTIVE SPEC</span>
                   </div>
                   <p className="text-xs text-white font-medium">
                     {isAr ? 'تجهيزات متكاملة لمشروعات النقل والموانئ والمجتمعات العمرانية' : 'Comprehensive equipment for transport, utility, and urban infrastructure'}

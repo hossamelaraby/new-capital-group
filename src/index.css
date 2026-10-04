@@ -38,9 +38,10 @@
   }
 }
 
-/* Industrial Editorial Signatures */
+/* Industrial Editorial Signatures & Explicit Soft Curvature */
 .industrial-border {
   border: 1px solid rgba(213, 201, 181, 0.15);
+  border-radius: 1rem;
 }
 
 .protection-line {
@@ -52,7 +53,8 @@
   bottom: -6px;
   left: 0;
   width: 48px;
-  height: 2px;
+  height: 3px;
+  border-radius: 9999px;
   background-color: #E5A72B;
 }
 [dir="rtl"] .protection-line::after {
@@ -60,9 +62,44 @@
   right: 0;
 }
 
+/* Explicitly rounded buttons without sharp notches */
 .signal-notch {
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+  border-radius: 9999px !important;
 }
 [dir="rtl"] .signal-notch {
-  clip-path: polygon(10px 0, 100% 0, 100% 100%, 0 100%, 0 10px);
+  border-radius: 9999px !important;
 }
+
+/* Global Smooth Curvature Enforcement: All images, cards, and interactive elements */
+img {
+  border-radius: 1rem;
+}
+
+button, input, select, textarea {
+  border-radius: 0.75rem;
+}
+
+.rounded {
+  border-radius: 0.75rem !important;
+}
+
+.rounded-md {
+  border-radius: 0.875rem !important;
+}
+
+.rounded-lg {
+  border-radius: 1rem !important;
+}
+
+.rounded-xl {
+  border-radius: 1.25rem !important;
+}
+
+.rounded-2xl {
+  border-radius: 1.5rem !important;
+}
+
+.rounded-3xl {
+  border-radius: 2rem !important;
+}
+
