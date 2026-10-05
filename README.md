@@ -1,32 +1,48 @@
-# React + TypeScript + Vite
+# مجموعة العاصمة الجديدة للتوريدات العمومية والسلامة الصناعية
+## New Capital Group — Industrial Safety, PPE & Fire Protection
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+الموقع الرسمي المعتمد لشركة العاصمة الجديدة للتوريدات العمومية، المتخصصة في تجارة وتوريد مستلزمات الأمن الصناعي، مهمات الوقاية الشخصية (PPE)، مستلزمات مكافحة الحريق، لوحات وإشارات السلامة، ومهمات المشروعات الهندسية الكبرى في مصر.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### 🌐 الروابط الرسمية (Production):
+- **الموقع الرسمي:** [https://nc-safety.com](https://nc-safety.com)
+- **النطاق البديل:** [https://www.nc-safety.com](https://www.nc-safety.com)
+- **السيرفر السحابي البديل:** [https://new-capital-group.vercel.app](https://new-capital-group.vercel.app)
+- **لوحة التحكم (Admin Dashboard):** [https://nc-safety.com/admin](https://nc-safety.com/admin)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🏢 الفروع وبيانات الاتصال المعتمدة:
+- **المقر الرئيسي:** 6 شارع النخيل، الحي المتميز، السادس من أكتوبر
+- **فرع القاهرة:** 11 شارع الحرية، الساحل، القاهرة
+- **أرقام التواصل المباشرة:**
+  - `01092920624` (المكتب الفني)
+  - `01001761127` (متابعة المشروعات)
+  - `01001761107` (التوريدات الميدانية)
+  - `01019644315` (خدمة العملاء والتوريدات)
+  - `01010550857` / `02 2460 2460`
+- **البريد الإلكتروني:** `newcapitalcompany2020@gmail.com`
 
-## Expanding the Oxlint configuration
+---
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+### 🛡️ المميزات التقنية:
+- **التصميم:** Architectural Field Atlas Light Design System متوافق بالكامل مع معايير الهوية البصرية.
+- **الصور:** صور حديثة فائقة الدقة بصيغة WebP بحواف دائرية ونسب أبعاد حقيقية.
+- **التوافقية:** ثنائي اللغة بالكامل (العربية RTL والإنجليزية LTR).
+- **إدارة المحتوى (CMS):** لوحة تحكم متكاملة بدون قاعدة بيانات خارجية معتمدة على إدارة التخزين المحلي ومزامنة البيانات.
+- **الاستضافة:** سيرفر سحابي عالمي (Vercel Edge Network) مع شهادة تشفير وأمان SSL/TLS تلقائية وتكامل مباشر مع نطاق GoDaddy الرسمي.
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+---
+
+### 💻 التشغيل المحلي:
+```bash
+# تثبيت الحزم
+npm install
+
+# تشغيل بيئة التطوير
+npm run dev
+
+# بناء نسخة الإنتاج
+npm run build
 ```
-
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
