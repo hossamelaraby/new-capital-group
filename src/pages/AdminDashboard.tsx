@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useData } from '../context/DataContext';
 import { Product, Category, QuoteRequest, DocumentItem } from '../types';
 import { compressImage } from '../utils/imageCompressor';
@@ -25,7 +26,9 @@ import {
   Image as ImageIcon,
   FolderPlus,
   RefreshCw,
-  Loader2
+  Loader2,
+  ArrowLeft,
+  ArrowRight
 } from 'lucide-react';
 
 export const AdminDashboard: React.FC = () => {
@@ -124,69 +127,93 @@ export const AdminDashboard: React.FC = () => {
     }
   };
 
+  const BackArrow = isAr ? ArrowRight : ArrowLeft;
+
   if (!isAdminAuthenticated) {
     return (
-      <div className="max-w-md mx-auto px-4 py-20">
-        <div className="bg-[#12202A] border border-[#D5C9B5]/20 rounded-xl p-8 space-y-6 shadow-2xl">
-          <div className="text-center space-y-2">
-            <div className="w-12 h-12 rounded-full bg-[#1D3440] text-[#E5A72B] mx-auto flex items-center justify-center border border-[#E5A72B]/30">
-              <Lock className="w-6 h-6" />
-            </div>
-            <h2 className="text-xl font-bold text-white">
-              {isAr ? 'لوحة تحكم إدارة المحتوى (CMS)' : 'Administrative CMS Login'}
-            </h2>
-            <p className="text-xs text-[#D5C9B5]/70">
-              {isAr ? 'منطقة إدارية مخصصة للتحكم الكامل في الأصناف والمنتجات والصور' : 'Authorized portal for catalogue, media, and quote management'}
-            </p>
-          </div>
+      <div className="min-h-screen bg-[#070F15] text-[#D5C9B5] flex flex-col justify-between p-4 sm:p-8">
+        {/* Top Minimal Bar */}
+        <div className="flex items-center justify-between max-w-md mx-auto w-full pt-2">
+          <Link
+            to="/"
+            className="text-xs text-[#D5C9B5]/70 hover:text-[#E5A72B] flex items-center gap-1.5 transition-colors font-medium"
+          >
+            <BackArrow className="w-3.5 h-3.5" />
+            <span>{isAr ? 'العودة للموقع الرئيسي' : 'Return to Public Website'}</span>
+          </Link>
+          <span className="text-[10px] font-mono text-[#D5C9B5]/40 uppercase tracking-widest">
+            SECURE PORTAL
+          </span>
+        </div>
 
-          <form onSubmit={handleLoginSubmit} className="space-y-4">
-            {loginError && (
-              <div className="p-3 rounded bg-red-950/80 border border-red-500/40 text-red-200 text-xs">
-                {isAr ? 'كلمة المرور غير صحيحة. يرجى التحقق.' : 'Incorrect administrative password.'}
+        {/* Center Card */}
+        <div className="max-w-md mx-auto w-full my-auto py-8">
+          <div className="bg-[#12202A] border border-[#D5C9B5]/20 rounded-2xl p-8 space-y-6 shadow-2xl">
+            <div className="text-center space-y-2">
+              <div className="w-14 h-14 rounded-2xl bg-[#E5A72B] text-[#0B1720] mx-auto flex items-center justify-center font-black text-xl shadow-lg border border-[#E5A72B]/50">
+                NC
               </div>
-            )}
-
-            <div>
-              <label className="block text-xs font-medium text-[#D5C9B5] mb-1">
-                {isAr ? 'كلمة المرور الإدارية' : 'Admin Password'}
-              </label>
-              <input
-                type="password"
-                required
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="••••••••"
-                className="w-full bg-[#0B1720] border border-[#D5C9B5]/20 rounded p-2.5 text-xs text-white outline-none focus:border-[#E5A72B]"
-              />
-              <span className="text-[10px] text-[#D5C9B5]/40 block mt-1">
-                {isAr ? 'كلمة المرور: newcapital2026' : 'Access password: newcapital2026'}
-              </span>
+              <h2 className="text-xl font-bold text-white pt-2">
+                {isAr ? 'بوابة إدارة المحتوى المركزية (CMS)' : 'Administrative CMS Login'}
+              </h2>
+              <p className="text-xs text-[#D5C9B5]/70">
+                {isAr ? 'لوحة تحكم إدارية مستقلة للتحكم في الكتالوجات والمنتجات والطلبات' : 'Authorized portal for catalogue, media, and quote management'}
+              </p>
             </div>
 
-            <button
-              type="submit"
-              className="w-full py-2.5 rounded bg-[#E5A72B] hover:bg-[#ffbe3b] text-[#0B1720] font-bold text-xs transition-colors signal-notch"
-            >
-              {isAr ? 'تسجيل الدخول إلى النظام' : 'Sign In to Portal'}
-            </button>
+            <form onSubmit={handleLoginSubmit} className="space-y-4">
+              {loginError && (
+                <div className="p-3 rounded-lg bg-red-950/80 border border-red-500/40 text-red-200 text-xs">
+                  {isAr ? 'كلمة المرور غير صحيحة. يرجى التحقق.' : 'Incorrect administrative password.'}
+                </div>
+              )}
 
-            <div className="pt-2 text-center border-t border-[#D5C9B5]/10">
+              <div>
+                <label className="block text-xs font-medium text-[#D5C9B5] mb-1">
+                  {isAr ? 'كلمة المرور الإدارية' : 'Admin Password'}
+                </label>
+                <input
+                  type="password"
+                  required
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="••••••••"
+                  className="w-full bg-[#0B1720] border border-[#D5C9B5]/20 rounded-lg p-2.5 text-xs text-white outline-none focus:border-[#E5A72B]"
+                />
+                <span className="text-[10px] text-[#D5C9B5]/40 block mt-1">
+                  {isAr ? 'كلمة المرور: newcapital2026' : 'Access password: newcapital2026'}
+                </span>
+              </div>
+
               <button
-                type="button"
-                onClick={() => {
-                  if (confirm(isAr ? 'هل تريد استعادة البيانات الافتراضية وحل أي تعارض محلي؟' : 'Reset all local data to defaults?')) {
-                    resetToInitialData();
-                    window.location.reload();
-                  }
-                }}
-                className="text-[11px] text-[#D5C9B5]/60 hover:text-[#E5A72B] transition-colors inline-flex items-center gap-1"
+                type="submit"
+                className="w-full py-2.5 rounded-lg bg-[#E5A72B] hover:bg-[#ffbe3b] text-[#0B1720] font-bold text-xs transition-colors signal-notch"
               >
-                <RefreshCw className="w-3 h-3" />
-                <span>{isAr ? 'استعادة وتحديث البيانات الأصلية' : 'Sync & Reset Defaults'}</span>
+                {isAr ? 'تسجيل الدخول إلى النظام' : 'Sign In to Portal'}
               </button>
-            </div>
-          </form>
+
+              <div className="pt-2 text-center border-t border-[#D5C9B5]/10">
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (confirm(isAr ? 'هل تريد استعادة البيانات الافتراضية وحل أي تعارض محلي؟' : 'Reset all local data to defaults?')) {
+                      resetToInitialData();
+                      window.location.reload();
+                    }
+                  }}
+                  className="text-[11px] text-[#D5C9B5]/60 hover:text-[#E5A72B] transition-colors inline-flex items-center gap-1"
+                >
+                  <RefreshCw className="w-3 h-3" />
+                  <span>{isAr ? 'استعادة وتحديث البيانات الأصلية' : 'Sync & Reset Defaults'}</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        {/* Minimal Footer */}
+        <div className="text-center text-[11px] text-[#D5C9B5]/30 pb-2 font-mono">
+          © 2026 New Capital Group — Enterprise Console
         </div>
       </div>
     );
@@ -204,46 +231,78 @@ export const AdminDashboard: React.FC = () => {
   });
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-8">
-      {/* Admin Top Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[#D5C9B5]/15 pb-4 gap-4">
-        <div>
+    <div className="min-h-screen bg-[#070F15] text-[#D5C9B5] flex flex-col justify-between">
+      {/* Standalone Dedicated Executive Admin Header Bar */}
+      <header className="bg-[#0B1720] border-b border-[#D5C9B5]/20 sticky top-0 z-40 px-4 sm:px-8 py-3.5 shadow-lg">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <h1 className="text-2xl font-bold text-white">
-              {isAr ? 'لوحة إدارة الأصناف والمنتجات (CMS)' : 'Category & Product Management (CMS)'}
-            </h1>
-            <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-xs font-mono">
-              {adminUser?.role ? adminUser.role.toUpperCase() : 'ADMIN'}
-            </span>
+            <div className="w-10 h-10 rounded-xl bg-[#E5A72B] text-[#0B1720] flex items-center justify-center font-black text-sm shadow-md border border-[#E5A72B]/50">
+              NC
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="font-bold text-white text-sm">
+                  {isAr ? 'لوحة تحكم وإدارة المحتوى (CMS)' : 'New Capital CMS Portal'}
+                </span>
+                <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 text-[10px] font-mono border border-emerald-500/30 font-bold">
+                  LIVE
+                </span>
+              </div>
+              <span className="text-[11px] text-[#D5C9B5]/60 block font-mono">
+                {isAr ? 'مجموعة العاصمة الجديدة للتوريدات العمومية' : 'New Capital Group — Enterprise Console'}
+              </span>
+            </div>
           </div>
-          <p className="text-xs text-[#D5C9B5]/70 mt-1">
-            {isAr ? `المستخدم المسجل: ${adminUser?.name}` : `Signed in as: ${adminUser?.name}`}
-          </p>
-        </div>
 
-        <div className="flex items-center gap-2">
-          <button
-            onClick={() => {
-              if (confirm(isAr ? 'هل تود استرجاع كافة المنتجات والصور والكتالوجات الافتراضية؟' : 'Reset all data to defaults?')) {
-                resetToInitialData();
-              }
-            }}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-[#12202A] border border-[#D5C9B5]/20 hover:border-[#E5A72B] text-xs text-[#D5C9B5]"
-            title={isAr ? 'استعادة البيانات الافتراضية' : 'Reset to defaults'}
-          >
-            <RefreshCw className="w-3.5 h-3.5" />
-            <span>{isAr ? 'تحديث البيانات الافتراضية' : 'Sync Defaults'}</span>
-          </button>
+          <div className="flex items-center flex-wrap gap-2.5">
+            {/* View Public Website */}
+            <a
+              href="/"
+              target="_blank"
+              rel="noreferrer"
+              className="px-3.5 py-1.5 rounded-lg bg-[#12202A] hover:bg-[#1D3440] border border-[#D5C9B5]/25 text-[#E5A72B] hover:text-white text-xs font-bold flex items-center gap-1.5 transition-colors shadow-sm"
+            >
+              <span>{isAr ? 'معاينة الموقع العام' : 'View Public Site'}</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
 
-          <button
-            onClick={adminLogout}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-[#1D3440] hover:bg-red-950/70 text-[#D5C9B5] hover:text-red-300 text-xs transition-colors"
-          >
-            <LogOut className="w-3.5 h-3.5" />
-            <span>{isAr ? 'تسجيل الخروج' : 'Log Out'}</span>
-          </button>
+            {/* Sync Defaults */}
+            <button
+              onClick={() => {
+                if (confirm(isAr ? 'هل تود استرجاع كافة المنتجات والصور والكتالوجات الافتراضية؟' : 'Reset all data to defaults?')) {
+                  resetToInitialData();
+                }
+              }}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#12202A] border border-[#D5C9B5]/20 hover:border-[#E5A72B] text-xs text-[#D5C9B5] transition-colors"
+              title={isAr ? 'استعادة البيانات الافتراضية' : 'Reset to defaults'}
+            >
+              <RefreshCw className="w-3.5 h-3.5" />
+              <span>{isAr ? 'تحديث البيانات' : 'Sync Defaults'}</span>
+            </button>
+
+            {/* Engineer Profile Badge */}
+            <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#12202A] border border-[#D5C9B5]/15 text-xs text-white">
+              <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+              <span className="font-semibold">{adminUser?.name || 'المهندس المسؤول'}</span>
+              <span className="px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-300 text-[10px] font-mono">
+                {adminUser?.role ? adminUser.role.toUpperCase() : 'ADMIN'}
+              </span>
+            </div>
+
+            {/* Logout */}
+            <button
+              onClick={adminLogout}
+              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-red-950/60 hover:bg-red-900 border border-red-500/30 text-red-200 text-xs font-bold transition-colors shadow-sm"
+            >
+              <LogOut className="w-3.5 h-3.5" />
+              <span>{isAr ? 'تسجيل الخروج' : 'Log Out'}</span>
+            </button>
+          </div>
         </div>
-      </div>
+      </header>
+
+      {/* Main Admin Workspace Area */}
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-8 py-8 space-y-8">
 
       {/* Admin Navigation Tabs */}
       <div className="flex flex-wrap gap-2 border-b border-[#D5C9B5]/10 pb-2 text-xs">
@@ -1040,6 +1099,14 @@ export const AdminDashboard: React.FC = () => {
           </div>
         </div>
       )}
+      </main>
+
+      {/* Standalone Dedicated Admin Footer */}
+      <footer className="bg-[#0B1720] border-t border-[#D5C9B5]/10 py-4 px-4 text-center text-xs text-[#D5C9B5]/50 font-mono">
+        {isAr 
+          ? 'نظام الإدارة والتشغيل الميداني المركزي © 2026 مجموعة العاصمة الجديدة للتوريدات العمومية' 
+          : 'Central Operations Management System © 2026 New Capital Group'}
+      </footer>
     </div>
   );
 };
