@@ -79,9 +79,11 @@ export const Home: React.FC = () => {
     }
   ];
 
-  // Featured 6 products matching PDF requirements with exact verified images
-  const featuredProductSkus = ['NC-PPE-SH01', 'NC-PPE-GL03', 'NC-PPE-VT02', 'NC-PPE-HN05', 'NC-FIR-EX06', 'NC-UTL-TP09'];
-  const featuredProducts = products.filter(p => featuredProductSkus.includes(p.sku)).slice(0, 6);
+  // Dynamic categories from DataContext (falling back to initial if empty)
+  const dynamicCategories = categories.filter(c => c && c.published);
+
+  // Dynamic featured products: show newly added or published products first
+  const featuredProducts = products.filter(p => p && p.published).slice(0, 6);
 
   return (
     <div className="space-y-16 pb-20 bg-[#F3F0E9] text-[#1F292C]">
@@ -237,134 +239,59 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 6.5 Three Core Category Panels (Large Architectural Panels) */}
+      {/* Dynamic Categories Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="space-y-1 mb-8">
           <span className="text-xs font-mono uppercase text-[#B96543] tracking-wider font-semibold">
-            {isAr ? 'التخصصات الثلاثة الأساسية' : 'Primary Specialties'}
+            {isAr ? 'الأقسام والتخصصات المعتمدة' : 'Verified Specialties & Product Lines'}
           </span>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-[#123D40]">
-            {isAr ? 'الركائز الرئيسية لمنظومة السلامة' : 'Three Core Safety Pillars'}
+            {isAr ? 'الركائز الرئيسية لمنظومة السلامة والتوريدات' : 'Core Supply Categories'}
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Panel 1: PPE */}
-          <div className="rounded-2xl overflow-hidden bg-[#FBFAF6] border border-[#DCD3C5] flex flex-col justify-between shadow-sm hover:border-[#123D40] transition-colors">
-            <div className="h-60 overflow-hidden relative">
-              <img 
-                src="/assets/02-category-ppe.webp" 
-                alt="Industrial Safety & PPE" 
-                className="w-full h-full object-cover rounded-t-2xl hover:scale-105 transition-transform duration-500"
-              />
-              <span className="absolute top-3 left-3 bg-[#123D40] text-white text-[11px] font-mono px-3 py-1 rounded-full font-bold">
-                01 • PPE
-              </span>
-            </div>
-            <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-              <div>
-                <h3 className="text-lg font-bold text-[#123D40]">
-                  {isAr ? 'الأمن الصناعي ومهمات الوقاية الشخصية (PPE)' : 'Industrial Safety & PPE'}
-                </h3>
-                <p className="text-xs text-[#687174] mt-2 leading-relaxed">
-                  {isAr 
-                    ? 'أحذية سلامة S3 معتمدة، سترات عالية الوضوح Class 2، قفازات عمل ميكانيكية، وخوذات حماية الرأس والأعين.'
-                    : 'Certified safety boots S3, hi-vis vests Class 2, heavy-duty gloves, and industrial head/eye protection.'
-                  }
-                </p>
-                <div className="pt-3 flex flex-wrap gap-2 text-[11px]">
-                  <span className="px-2 py-0.5 rounded-full bg-[#F3F0E9] text-[#123D40] border border-[#DCD3C5] font-medium">أحذية S1/S3</span>
-                  <span className="px-2 py-0.5 rounded-full bg-[#F3F0E9] text-[#123D40] border border-[#DCD3C5] font-medium">سترات عاكسة</span>
-                  <span className="px-2 py-0.5 rounded-full bg-[#F3F0E9] text-[#123D40] border border-[#DCD3C5] font-medium">قفازات ميكانيكية</span>
+        {/* Dynamic Categories Grid: Displays all categories registered in CMS */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {dynamicCategories.map((cat, idx) => {
+            const catProds = products.filter(p => p.categorySlug === cat.slug);
+            return (
+              <div 
+                key={cat.id || cat.slug}
+                className="rounded-2xl overflow-hidden bg-[#FBFAF6] border border-[#DCD3C5] flex flex-col justify-between shadow-sm hover:border-[#123D40] transition-colors"
+              >
+                <div className="h-60 overflow-hidden relative bg-[#F3F0E9]">
+                  <img 
+                    src={cat.image} 
+                    alt={isAr ? cat.nameAr : cat.nameEn} 
+                    className="w-full h-full object-cover rounded-t-2xl hover:scale-105 transition-transform duration-500"
+                  />
+                  <span className="absolute top-3 left-3 bg-[#123D40] text-white text-[11px] font-mono px-3 py-1 rounded-full font-bold">
+                    0{idx + 1} • {cat.slug.toUpperCase()}
+                  </span>
+                  <span className="absolute bottom-3 right-3 px-2.5 py-0.5 rounded-full bg-[#FBFAF6]/90 text-[10px] font-mono text-[#123D40] font-bold border border-[#DCD3C5]">
+                    {catProds.length} {isAr ? 'بنود' : 'items'}
+                  </span>
+                </div>
+                <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
+                  <div>
+                    <h3 className="text-lg font-bold text-[#123D40]">
+                      {isAr ? cat.nameAr : cat.nameEn}
+                    </h3>
+                    <p className="text-xs text-[#687174] mt-2 leading-relaxed line-clamp-3">
+                      {isAr ? cat.descAr : (cat.descEn || cat.descAr)}
+                    </p>
+                  </div>
+                  <Link 
+                    to={`/products?category=${cat.slug}`} 
+                    className="inline-flex items-center justify-between text-xs font-bold text-[#B96543] pt-4 border-t border-[#DCD3C5]"
+                  >
+                    <span>{isAr ? `استعراض كتالوج ${cat.nameAr}` : `Browse ${cat.nameEn}`}</span>
+                    <Arrow className="w-4 h-4" />
+                  </Link>
                 </div>
               </div>
-              <Link 
-                to="/products?category=ppe" 
-                className="inline-flex items-center justify-between text-xs font-bold text-[#B96543] pt-4 border-t border-[#DCD3C5]"
-              >
-                <span>{isAr ? 'استعراض كتالوج مهمات الوقاية' : 'Browse PPE Catalogue'}</span>
-                <Arrow className="w-4 h-4" />
-              </Link>
-            </div>
-          </div>
-
-          {/* Panel 2: Fire Protection */}
-          <div className="rounded-2xl overflow-hidden bg-[#FBFAF6] border border-[#DCD3C5] flex flex-col justify-between shadow-sm hover:border-[#123D40] transition-colors">
-            <div className="h-60 overflow-hidden relative">
-              <img 
-                src="/assets/03-category-fire-protection.webp" 
-                alt="Fire Protection" 
-                className="w-full h-full object-cover rounded-t-2xl hover:scale-105 transition-transform duration-500"
-              />
-              <span className="absolute top-3 left-3 bg-[#123D40] text-white text-[11px] font-mono px-3 py-1 rounded-full font-bold">
-                02 • FIRE
-              </span>
-            </div>
-            <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-              <div>
-                <h3 className="text-lg font-bold text-[#123D40]">
-                  {isAr ? 'مكافحة الحريق ومعدات الطوارئ' : 'Fire Protection'}
-                </h3>
-                <p className="text-xs text-[#687174] mt-2 leading-relaxed">
-                  {isAr 
-                    ? 'طفايات حريق كيميائية وبودرة جافة، لوحات فوسفورية لتحديد المعدات، وتجهيزات مخارج الطوارئ ومسارات النجاة.'
-                    : 'Chemical fire extinguishers, photoluminescent safety signage, and emergency wayfinding markers.'
-                  }
-                </p>
-                <div className="pt-3 flex flex-wrap gap-2 text-[11px]">
-                  <span className="px-2 py-0.5 rounded-full bg-[#F3F0E9] text-[#123D40] border border-[#DCD3C5] font-medium">طفايات حريق</span>
-                  <span className="px-2 py-0.5 rounded-full bg-[#F3F0E9] text-[#123D40] border border-[#DCD3C5] font-medium">لوحات فوسفورية</span>
-                  <span className="px-2 py-0.5 rounded-full bg-[#F3F0E9] text-[#123D40] border border-[#DCD3C5] font-medium">مخارج الطوارئ</span>
-                </div>
-              </div>
-              <Link 
-                to="/products?category=fire-safety" 
-                className="inline-flex items-center justify-between text-xs font-bold text-[#B96543] pt-4 border-t border-[#DCD3C5]"
-              >
-                <span>{isAr ? 'استعراض مستلزمات الحريق' : 'Browse Fire Safety'}</span>
-                <Arrow className="w-4 h-4" />
-              </Link>
-            </div>
-          </div>
-
-          {/* Panel 3: Safety Signs & Site Protection */}
-          <div className="rounded-2xl overflow-hidden bg-[#FBFAF6] border border-[#DCD3C5] flex flex-col justify-between shadow-sm hover:border-[#123D40] transition-colors">
-            <div className="h-60 overflow-hidden relative">
-              <img 
-                src="/assets/04-category-safety-signs.webp" 
-                alt="Safety Signs & Site Protection" 
-                className="w-full h-full object-cover rounded-t-2xl hover:scale-105 transition-transform duration-500"
-              />
-              <span className="absolute top-3 left-3 bg-[#123D40] text-white text-[11px] font-mono px-3 py-1 rounded-full font-bold">
-                03 • SIGNS
-              </span>
-            </div>
-            <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-              <div>
-                <h3 className="text-lg font-bold text-[#123D40]">
-                  {isAr ? 'المستلزمات المرورية ولوحات السلامة والصحة المهنية' : 'Traffic Supplies & Occupational Safety Signs'}
-                </h3>
-                <p className="text-xs text-[#687174] mt-2 leading-relaxed">
-                  {isAr 
-                    ? 'لوحات التحذير والمنع ISO 7010 من الألومنيوم والـ PVC المقاوم للشمس، ولوحات إلزام مهمات الوقاية للمواقع.'
-                    : 'ISO 7010 hazard warning signboards, rigid weatherproof PVC/aluminum, and compulsory PPE site check markers.'
-                  }
-                </p>
-                <div className="pt-3 flex flex-wrap gap-2 text-[11px]">
-                  <span className="px-2 py-0.5 rounded-full bg-[#F3F0E9] text-[#123D40] border border-[#DCD3C5] font-medium">لوحات ISO 7010</span>
-                  <span className="px-2 py-0.5 rounded-full bg-[#F3F0E9] text-[#123D40] border border-[#DCD3C5] font-medium">لوحات الإلزام</span>
-                  <span className="px-2 py-0.5 rounded-full bg-[#F3F0E9] text-[#123D40] border border-[#DCD3C5] font-medium">مسارات الإخلاء</span>
-                </div>
-              </div>
-              <Link 
-                to="/products?category=safety-signs" 
-                className="inline-flex items-center justify-between text-xs font-bold text-[#B96543] pt-4 border-t border-[#DCD3C5]"
-              >
-                <span>{isAr ? 'استعراض لوحات السلامة' : 'Browse Site Signs'}</span>
-                <Arrow className="w-4 h-4" />
-              </Link>
-            </div>
-          </div>
+            );
+          })}
         </div>
       </section>
 

@@ -63,14 +63,9 @@ export const Header: React.FC = () => {
               <span dir="ltr">{settings.landline}</span>
             </a>
             <span className="hidden sm:inline text-[#DCD3C5]">|</span>
-            <Link 
-              to="/admin" 
-              className="flex items-center gap-1 text-[#687174] hover:text-[#123D40] transition-colors"
-              title="لوحة الإدارة والتحكم"
-            >
-              <SlidersHorizontal className="w-3 h-3 text-[#53787A]" />
-              <span>{isAr ? 'لوحة التحكم' : 'Admin'}</span>
-            </Link>
+            <span className="text-[11px] text-[#687174]">
+              {isAr ? 'القاهرة، ج.م.ع' : 'Cairo, Egypt'}
+            </span>
           </div>
         </div>
       </div>
