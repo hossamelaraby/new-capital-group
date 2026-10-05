@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useData } from '../context/DataContext';
 import { Product, Category, QuoteRequest, DocumentItem } from '../types';
+import { compressImage } from '../utils/imageCompressor';
 import { 
   Lock, 
   LogOut, 
@@ -23,7 +24,8 @@ import {
   Upload,
   Image as ImageIcon,
   FolderPlus,
-  RefreshCw
+  RefreshCw,
+  Loader2
 } from 'lucide-react';
 
 export const AdminDashboard: React.FC = () => {
@@ -69,6 +71,9 @@ export const AdminDashboard: React.FC = () => {
   // Quick filter for products
   const [prodSearch, setProdSearch] = useState('');
 
+  // Image compression loading state
+  const [isCompressing, setIsCompressing] = useState(false);
+
   const handleLoginSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const success = adminLogin(password);
@@ -80,36 +85,42 @@ export const AdminDashboard: React.FC = () => {
     }
   };
 
-  // Image file upload handler using HTML FileReader (converts to Base64 data URL)
-  const handleProductImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  // High-performance client-side image compression handler
+  const handleProductImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0] && editingProduct) {
       const file = e.target.files[0];
-      const reader = new FileReader();
-      reader.onload = (uploadEvent) => {
-        if (uploadEvent.target?.result) {
-          setEditingProduct({
-            ...editingProduct,
-            primaryImage: uploadEvent.target.result as string
-          });
-        }
-      };
-      reader.readAsDataURL(file);
+      try {
+        setIsCompressing(true);
+        const compressed = await compressImage(file, 900, 900, 0.75);
+        setEditingProduct(prev => prev ? {
+          ...prev,
+          primaryImage: compressed
+        } : null);
+      } catch (err) {
+        console.error('Image upload failed:', err);
+        alert(isAr ? 'تعذر ضغط ومعالجة الصورة. يرجى اختيار ملف صورة صالح.' : 'Failed to compress image file');
+      } finally {
+        setIsCompressing(false);
+      }
     }
   };
 
-  const handleCategoryImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleCategoryImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0] && editingCategory) {
       const file = e.target.files[0];
-      const reader = new FileReader();
-      reader.onload = (uploadEvent) => {
-        if (uploadEvent.target?.result) {
-          setEditingCategory({
-            ...editingCategory,
-            image: uploadEvent.target.result as string
-          });
-        }
-      };
-      reader.readAsDataURL(file);
+      try {
+        setIsCompressing(true);
+        const compressed = await compressImage(file, 900, 900, 0.75);
+        setEditingCategory(prev => prev ? {
+          ...prev,
+          image: compressed
+        } : null);
+      } catch (err) {
+        console.error('Category image upload failed:', err);
+        alert(isAr ? 'تعذر ضغط ومعالجة الصورة. يرجى اختيار ملف صورة صالح.' : 'Failed to compress category image');
+      } finally {
+        setIsCompressing(false);
+      }
     }
   };
 
@@ -159,6 +170,22 @@ export const AdminDashboard: React.FC = () => {
             >
               {isAr ? 'تسجيل الدخول إلى النظام' : 'Sign In to Portal'}
             </button>
+
+            <div className="pt-2 text-center border-t border-[#D5C9B5]/10">
+              <button
+                type="button"
+                onClick={() => {
+                  if (confirm(isAr ? 'هل تريد استعادة البيانات الافتراضية وحل أي تعارض محلي؟' : 'Reset all local data to defaults?')) {
+                    resetToInitialData();
+                    window.location.reload();
+                  }
+                }}
+                className="text-[11px] text-[#D5C9B5]/60 hover:text-[#E5A72B] transition-colors inline-flex items-center gap-1"
+              >
+                <RefreshCw className="w-3 h-3" />
+                <span>{isAr ? 'استعادة وتحديث البيانات الأصلية' : 'Sync & Reset Defaults'}</span>
+              </button>
+            </div>
           </form>
         </div>
       </div>
@@ -170,7 +197,10 @@ export const AdminDashboard: React.FC = () => {
     if (selectedCategoryFilter !== 'all' && p.categorySlug !== selectedCategoryFilter) return false;
     if (!prodSearch) return true;
     const q = prodSearch.toLowerCase();
-    return p.titleAr.toLowerCase().includes(q) || p.titleEn.toLowerCase().includes(q) || p.sku.toLowerCase().includes(q);
+    const titleAr = (p.titleAr || '').toLowerCase();
+    const titleEn = (p.titleEn || '').toLowerCase();
+    const sku = (p.sku || '').toLowerCase();
+    return titleAr.includes(q) || titleEn.includes(q) || sku.includes(q);
   });
 
   return (
@@ -183,7 +213,7 @@ export const AdminDashboard: React.FC = () => {
               {isAr ? 'لوحة إدارة الأصناف والمنتجات (CMS)' : 'Category & Product Management (CMS)'}
             </h1>
             <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-xs font-mono">
-              {adminUser?.role.toUpperCase()}
+              {adminUser?.role ? adminUser.role.toUpperCase() : 'ADMIN'}
             </span>
           </div>
           <p className="text-xs text-[#D5C9B5]/70 mt-1">
@@ -499,7 +529,7 @@ export const AdminDashboard: React.FC = () => {
                     <td className="p-3 font-mono text-[#D5C9B5]">{p.categorySlug}</td>
                     <td className="p-3">
                       <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-mono text-[10px]">
-                        {p.verificationStatus.toUpperCase()}
+                        {(p.verificationStatus || 'verified').toUpperCase()}
                       </span>
                     </td>
                     <td className="p-3">
@@ -730,16 +760,23 @@ export const AdminDashboard: React.FC = () => {
                     className="w-20 h-20 object-cover rounded border border-[#D5C9B5]/30 bg-[#12202A]"
                   />
                   <div className="space-y-2 flex-1">
-                    <label className="inline-flex items-center gap-2 px-3 py-2 rounded bg-[#1D3440] hover:bg-[#284757] text-[#E5A72B] cursor-pointer font-bold border border-[#E5A72B]/30 transition-colors">
-                      <Upload className="w-4 h-4" />
-                      <span>{isAr ? 'اختر صورة من الكمبيوتر' : 'Choose Image File'}</span>
-                      <input
-                        type="file"
-                        accept="image/*"
-                        onChange={handleProductImageUpload}
-                        className="hidden"
-                      />
-                    </label>
+                    {isCompressing ? (
+                      <div className="flex items-center gap-2 text-[#E5A72B] font-bold text-xs py-2">
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        <span>{isAr ? 'جاري ضغط ومعالجة الصورة...' : 'Processing image...'}</span>
+                      </div>
+                    ) : (
+                      <label className="inline-flex items-center gap-2 px-3 py-2 rounded bg-[#1D3440] hover:bg-[#284757] text-[#E5A72B] cursor-pointer font-bold border border-[#E5A72B]/30 transition-colors">
+                        <Upload className="w-4 h-4" />
+                        <span>{isAr ? 'اختر صورة من الكمبيوتر' : 'Choose Image File'}</span>
+                        <input
+                          type="file"
+                          accept="image/*"
+                          onChange={handleProductImageUpload}
+                          className="hidden"
+                        />
+                      </label>
+                    )}
                     <span className="text-[10px] text-[#D5C9B5]/60 block">
                       {isAr ? 'يدعم PNG و JPG و WEBP (يتم تحويلها وحفظها محلياً تلقائياً)' : 'Supports PNG, JPG, WEBP'}
                     </span>
@@ -843,13 +880,24 @@ export const AdminDashboard: React.FC = () => {
                 إلغاء
               </button>
               <button
+                disabled={isCompressing}
                 onClick={() => {
-                  saveProduct(editingProduct);
+                  if (!editingProduct.titleAr.trim()) {
+                    alert(isAr ? 'يرجى كتابة اسم المنتج بالعربية' : 'Please enter product Arabic title');
+                    return;
+                  }
+                  const sanitizedProduct: Product = {
+                    ...editingProduct,
+                    titleEn: editingProduct.titleEn.trim() || editingProduct.titleAr.trim(),
+                    sku: editingProduct.sku.trim() || `NC-PROD-${Math.floor(100 + Math.random() * 900)}`,
+                    categorySlug: editingProduct.categorySlug || (categories[0]?.slug || 'ppe')
+                  };
+                  saveProduct(sanitizedProduct);
                   setIsProductModalOpen(false);
                 }}
-                className="px-5 py-2 rounded bg-[#E5A72B] text-[#0B1720] text-xs font-bold"
+                className="px-5 py-2 rounded bg-[#E5A72B] hover:bg-[#ffbe3b] text-[#0B1720] text-xs font-bold disabled:opacity-50"
               >
-                حفظ التغييرات
+                {isAr ? 'حفظ التغييرات' : 'Save Changes'}
               </button>
             </div>
           </div>
@@ -882,16 +930,23 @@ export const AdminDashboard: React.FC = () => {
                     className="w-20 h-20 object-cover rounded border border-[#D5C9B5]/30 bg-[#12202A]"
                   />
                   <div className="space-y-2 flex-1">
-                    <label className="inline-flex items-center gap-2 px-3 py-2 rounded bg-[#1D3440] hover:bg-[#284757] text-[#E5A72B] cursor-pointer font-bold border border-[#E5A72B]/30 transition-colors">
-                      <Upload className="w-4 h-4" />
-                      <span>{isAr ? 'رفع صورة الصنف' : 'Upload Category Image'}</span>
-                      <input
-                        type="file"
-                        accept="image/*"
-                        onChange={handleCategoryImageUpload}
-                        className="hidden"
-                      />
-                    </label>
+                    {isCompressing ? (
+                      <div className="flex items-center gap-2 text-[#E5A72B] font-bold text-xs py-2">
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        <span>{isAr ? 'جاري ضغط ومعالجة الصورة...' : 'Processing image...'}</span>
+                      </div>
+                    ) : (
+                      <label className="inline-flex items-center gap-2 px-3 py-2 rounded bg-[#1D3440] hover:bg-[#284757] text-[#E5A72B] cursor-pointer font-bold border border-[#E5A72B]/30 transition-colors">
+                        <Upload className="w-4 h-4" />
+                        <span>{isAr ? 'رفع صورة الصنف' : 'Upload Category Image'}</span>
+                        <input
+                          type="file"
+                          accept="image/*"
+                          onChange={handleCategoryImageUpload}
+                          className="hidden"
+                        />
+                      </label>
+                    )}
                   </div>
                 </div>
               </div>
@@ -958,13 +1013,28 @@ export const AdminDashboard: React.FC = () => {
                 إلغاء
               </button>
               <button
+                disabled={isCompressing}
                 onClick={() => {
-                  saveCategory(editingCategory);
+                  if (!editingCategory.nameAr.trim()) {
+                    alert(isAr ? 'يرجى كتابة اسم الصنف بالعربية' : 'Please enter category Arabic name');
+                    return;
+                  }
+                  const cleanSlug = editingCategory.slug.trim()
+                    ? editingCategory.slug.trim().toLowerCase().replace(/[^a-z0-9-]/g, '-')
+                    : `cat-${Date.now()}`;
+
+                  const sanitizedCat: Category = {
+                    ...editingCategory,
+                    slug: cleanSlug,
+                    nameEn: editingCategory.nameEn.trim() || editingCategory.nameAr.trim(),
+                    subcategories: Array.isArray(editingCategory.subcategories) ? editingCategory.subcategories : []
+                  };
+                  saveCategory(sanitizedCat);
                   setIsCategoryModalOpen(false);
                 }}
-                className="px-5 py-2 rounded bg-[#E5A72B] text-[#0B1720] text-xs font-bold"
+                className="px-5 py-2 rounded bg-[#E5A72B] hover:bg-[#ffbe3b] text-[#0B1720] text-xs font-bold disabled:opacity-50"
               >
-                حفظ الصنف
+                {isAr ? 'حفظ الصنف' : 'Save Category'}
               </button>
             </div>
           </div>

@@ -18,10 +18,13 @@ import { About } from './pages/About';
 import { Contact } from './pages/Contact';
 import { AdminDashboard } from './pages/AdminDashboard';
 
+import { ErrorBoundary } from './components/ErrorBoundary';
+
 export const App: React.FC = () => {
   return (
-    <DataProvider>
-      <BrowserRouter>
+    <ErrorBoundary>
+      <DataProvider>
+        <BrowserRouter>
         <ScrollToTop />
         <div className="min-h-screen flex flex-col bg-[#F3F0E9] text-[#1F292C]">
           <Header />
@@ -46,7 +49,8 @@ export const App: React.FC = () => {
         </div>
       </BrowserRouter>
     </DataProvider>
-  );
+  </ErrorBoundary>
+);
 };
 
 export default App;

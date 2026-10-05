@@ -28,10 +28,10 @@ export const Products: React.FC = () => {
       if (selectedSubcategory !== 'all' && p.subcategorySlug !== selectedSubcategory) return false;
       if (searchQuery.trim()) {
         const q = searchQuery.toLowerCase();
-        const matchesTitle = p.titleAr.toLowerCase().includes(q) || p.titleEn.toLowerCase().includes(q);
-        const matchesSku = p.sku.toLowerCase().includes(q);
-        const matchesDesc = p.shortDescAr.toLowerCase().includes(q) || p.shortDescEn.toLowerCase().includes(q);
-        const matchesTag = p.tag.toLowerCase().includes(q);
+        const matchesTitle = (p.titleAr || '').toLowerCase().includes(q) || (p.titleEn || '').toLowerCase().includes(q);
+        const matchesSku = (p.sku || '').toLowerCase().includes(q);
+        const matchesDesc = (p.shortDescAr || '').toLowerCase().includes(q) || (p.shortDescEn || '').toLowerCase().includes(q);
+        const matchesTag = (p.tag || '').toLowerCase().includes(q);
         if (!matchesTitle && !matchesSku && !matchesDesc && !matchesTag) return false;
       }
       return true;
@@ -108,7 +108,7 @@ export const Products: React.FC = () => {
       </div>
 
       {/* Subcategory Pills if category active */}
-      {activeCategoryObj && activeCategoryObj.subcategories.length > 0 && (
+      {activeCategoryObj && (activeCategoryObj.subcategories || []).length > 0 && (
         <div className="flex items-center gap-2 overflow-x-auto pb-2 text-xs border-b border-[#DCD3C5]">
           <span className="text-[#687174] font-mono text-[11px] shrink-0 font-medium">
             {isAr ? 'التصنيف الفرعي:' : 'Subcategory:'}
@@ -121,7 +121,7 @@ export const Products: React.FC = () => {
           >
             {isAr ? 'كافة البنود' : 'All Subcategories'}
           </button>
-          {activeCategoryObj.subcategories.map(sub => (
+          {(activeCategoryObj.subcategories || []).map(sub => (
             <button
               key={sub.slug}
               onClick={() => setSelectedSubcategory(sub.slug)}

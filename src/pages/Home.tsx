@@ -487,10 +487,10 @@ export const Home: React.FC = () => {
                     {prod.tag}
                   </span>
                   <h3 className="text-base font-bold text-[#123D40] mt-1 line-clamp-1">
-                    {isAr ? prod.titleAr : prod.titleEn}
+                    {isAr ? prod.titleAr : (prod.titleEn || prod.titleAr)}
                   </h3>
                   <p className="text-xs text-[#687174] mt-1.5 line-clamp-2 leading-relaxed">
-                    {isAr ? prod.shortDescAr : prod.shortDescEn}
+                    {isAr ? prod.shortDescAr : (prod.shortDescEn || prod.shortDescAr)}
                   </p>
                 </div>
 

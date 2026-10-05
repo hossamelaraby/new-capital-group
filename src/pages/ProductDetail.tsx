@@ -35,7 +35,7 @@ export const ProductDetail: React.FC = () => {
   };
 
   const currentDisplayImage = activeImage || product.primaryImage;
-  const allImages = [product.primaryImage, ...product.galleryImages];
+  const allImages = [product.primaryImage, ...(product.galleryImages || [])].filter(Boolean);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 space-y-12 bg-[#F3F0E9] text-[#1F292C]">
@@ -53,7 +53,7 @@ export const ProductDetail: React.FC = () => {
             <span>/</span>
           </>
         )}
-        <span className="text-[#B96543] font-bold truncate">{isAr ? product.titleAr : product.titleEn}</span>
+        <span className="text-[#B96543] font-bold truncate">{isAr ? product.titleAr : (product.titleEn || product.titleAr)}</span>
       </nav>
 
       {/* Main Grid: Left Visual Gallery, Right Technical Specification Panel */}
@@ -64,7 +64,7 @@ export const ProductDetail: React.FC = () => {
             <div className="h-96 w-full overflow-hidden rounded-xl bg-[#F3F0E9] flex items-center justify-center">
               <img 
                 src={currentDisplayImage} 
-                alt={isAr ? product.imageAltAr : product.imageAltEn}
+                alt={isAr ? (product.imageAltAr || product.titleAr) : (product.imageAltEn || product.titleEn || product.titleAr)}
                 className="w-full h-full object-cover rounded-xl"
               />
             </div>
@@ -92,12 +92,12 @@ export const ProductDetail: React.FC = () => {
             <div className="flex items-center justify-between">
               <span className="font-mono text-[#687174]">{isAr ? 'حالة التوثيق الفني:' : 'Verification Status:'}</span>
               <span className="px-2.5 py-0.5 rounded-full bg-[#123D40]/10 text-[#123D40] font-mono text-[11px] font-bold border border-[#123D40]/20">
-                {product.verificationStatus.toUpperCase()}
+                {(product.verificationStatus || 'verified').toUpperCase()}
               </span>
             </div>
             <div className="flex items-center justify-between">
               <span className="font-mono text-[#687174]">{isAr ? 'مصدر المواصفة:' : 'Source Provenance:'}</span>
-              <span className="text-[#123D40] font-mono font-bold">{product.sourceType.toUpperCase()} SPEC</span>
+              <span className="text-[#123D40] font-mono font-bold">{(product.sourceType || 'company').toUpperCase()} SPEC</span>
             </div>
           </div>
         </div>

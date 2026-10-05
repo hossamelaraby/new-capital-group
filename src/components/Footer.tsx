@@ -54,13 +54,13 @@ export const Footer: React.FC = () => {
               {isAr ? 'أقسام التوريد الرئيسية' : 'Primary Specialties'}
             </h4>
             <ul className="space-y-2 text-xs">
-              {categories.filter(c => c.published).map(cat => (
+              {(categories || []).filter(c => c && c.published).map(cat => (
                 <li key={cat.id}>
                   <Link 
                     to={`/products?category=${cat.slug}`}
                     className="hover:text-white transition-colors flex items-center justify-between text-[#DCD3C5]/85"
                   >
-                    <span>{isAr ? cat.nameAr : cat.nameEn}</span>
+                    <span>{isAr ? cat.nameAr : (cat.nameEn || cat.nameAr)}</span>
                     <span className="text-[10px] text-[#AEBFAE] font-mono">SPEC</span>
                   </Link>
                 </li>
