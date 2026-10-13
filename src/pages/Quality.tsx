@@ -66,12 +66,12 @@ export const Quality: React.FC = () => {
         </div>
       </div>
 
-      {/* ISO Certificates Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {/* ISO Certificates & Laboratory Reports Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {certificates.map(cert => (
           <div 
             key={cert.id}
-            className="rounded-2xl bg-[#FBFAF6] border border-[#DCD3C5] p-6 sm:p-8 space-y-6 shadow-sm flex flex-col justify-between"
+            className="rounded-2xl bg-[#FBFAF6] border border-[#DCD3C5] p-6 space-y-6 shadow-sm flex flex-col justify-between hover:border-[#123D40] transition-colors"
           >
             <div className="space-y-4">
               <div className="flex items-center justify-between border-b border-[#DCD3C5] pb-4">

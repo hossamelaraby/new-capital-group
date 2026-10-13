@@ -82,18 +82,18 @@ export const Resources: React.FC = () => {
         </div>
       </div>
 
-      {/* 2. ISO Certificates Section */}
+      {/* 2. ISO Certificates & Official Laboratory Test Reports */}
       <div className="space-y-6">
         <div className="flex items-center gap-3 border-b border-[#DCD3C5] pb-3">
           <div className="w-8 h-8 rounded-full bg-[#123D40]/10 flex items-center justify-center text-[#B96543]">
             <CheckCircle className="w-4 h-4" />
           </div>
           <h2 className="text-xl font-bold text-[#123D40]">
-            {isAr ? '2. شهادات الاعتماد والامتثال البيئي (Original ISO Certificates)' : '2. Quality & Environmental Certificates'}
+            {isAr ? '2. شهادات الاعتماد وتقارير الاختبارات المعملية المعتمدة (Certificates & Test Reports)' : '2. Quality Certificates & Official Laboratory Test Reports'}
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {certificates.map(doc => (
             <div
               key={doc.id}

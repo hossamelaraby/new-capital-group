@@ -474,6 +474,9 @@ export const initialProducts: Product[] = [
     materialAr: 'بولي إيثيلين بكر عالي الكثافة (HDPE) مع شريحة ألومنيوم غير متآكلة',
     materialEn: 'Virgin HDPE laminated with non-degrading metallic aluminum foil',
     standards: [
+      { name: 'تقرير اختبارات المركز القومي للبحوث (NRC Test Report MO1 0380 08 2026)', verified: true, documentRef: 'documents/National_Research_Centre_NRC_Detectable_Warning_Tape_Test_Report_2026.pdf' },
+      { name: 'ASTM D882 Tensile Strength & Elongation Test (إجهاد الشد والاستطالة)', verified: true },
+      { name: 'ASTM D1004 Tear Resistance Test (مقاومة التمزق)', verified: true },
       { name: 'EEHC Standard EDMS 30-310-1 for Buried Tapes', verified: true, documentRef: 'datasheets/tape-datasheet.pdf' },
       { name: 'ASTM D2103 Soil Chemical & Acid Resistance', verified: true }
     ],
@@ -913,6 +916,22 @@ export const initialDocuments: DocumentItem[] = [
     validUntil: '01/08/2027 (تاريخ الدورة حتى: 01/08/2029)',
     noteAr: 'نطاق الاعتماد: الامتثال البيئي في توريد وتخزين وتوزيع منتجات السلامة ومهمات المشروعات.',
     noteEn: 'Scope: Environmental management in general supplies, safety products, warning tapes and traffic materials.'
+  },
+  {
+    id: 'doc-nrc-test-report',
+    titleAr: 'تقرير نتائج الاختبارات الفنية الصادر من المركز القومي للبحوث (NRC) لشريط التحذير القابل للكشف',
+    titleEn: 'National Research Centre (NRC) Official Material Test Report for Detectable Warning Tape',
+    type: 'certificate',
+    fileUrl: '/documents/National_Research_Centre_NRC_Detectable_Warning_Tape_Test_Report_2026.pdf',
+    sizeMb: '0.95 MB',
+    sourceType: 'company',
+    verificationStatus: 'verified',
+    publicDisplay: true,
+    registrationNumber: 'MO1 0380 08 2026',
+    issueDate: '19/08/2026',
+    validUntil: 'معتمد للمشروعات (ASTM D882 & ASTM D1004)',
+    noteAr: 'صادر من المركز القومي للبحوث (وحدة التحاليل والخدمات العلمية المركزية - معمل اختبار المواد) لصالح شركة العاصمة الجديدة للتوريدات العمومية. يتضمن نتائج اختبارات السمك (150 ميكرون)، إجهاد الشد والاستطالة طبقاً للمواصفة ASTM D882، واختبار التمزق طبقاً للمواصفة ASTM D1004.',
+    noteEn: 'Issued by National Research Centre (CUASS - Material Test Lab) for New Capital for General Supplies. Verifies thickness (150 microns), tensile strength & elongation per ASTM D882, and tear resistance per ASTM D1004.'
   },
   {
     id: 'doc-comprehensive-catalog',
