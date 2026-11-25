@@ -145,7 +145,12 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
       const saved = localStorage.getItem(V_KEY + 'projects');
       if (saved) {
         const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          // Merge missing initial projects (e.g. Orascom portfolio updates) into existing storage
+          const existingIds = new Set(parsed.map((p: ProjectReference) => p.id));
+          const missing = initialProjects.filter(p => !existingIds.has(p.id));
+          return [...parsed, ...missing];
+        }
       }
     } catch {
       // ignore
