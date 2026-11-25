@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useData } from '../context/DataContext';
+import { MajorClients } from '../components/MajorClients';
 import { 
   Shield, 
   ArrowRight, 
@@ -372,6 +373,11 @@ export const Home: React.FC = () => {
             </Link>
           </div>
         </div>
+      </section>
+
+      {/* Major Clients & Contracting Partners */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6">
+        <MajorClients />
       </section>
 
       {/* 6.7 Featured Products (4–6 Products with Exact Clean Tiles) */}

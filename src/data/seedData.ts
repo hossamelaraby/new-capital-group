@@ -1334,40 +1334,6 @@ export const initialProjects: ProjectReference[] = [
     image: "/projects_orascom/new-cairo-wastewater-treatment-plant.jpg",
     publicDisplay: true,
     verificationNote: "مشروع من مشروعات أوراسكوم للإنشاءات (Orascom Construction) في مصر - تم تصنيفه كسابقة أعمال وتوريدات معتمدة."
-  },
-  {
-    id: "proj-el-dabaa",
-    titleAr: "مشروع محطة الضبعة للطاقة النووية",
-    titleEn: "El-Dabaa Nuclear Power Plant Project",
-    locationAr: "الضبعة، مطروح، مصر",
-    locationEn: "El-Dabaa, Matrouh, Egypt",
-    sectorAr: "الطاقة وتوليد الكهرباء",
-    sectorEn: "Energy & Power Generation",
-    descriptionAr: "المشروع القومي الرائد لتوليد الكهرباء بالطاقة النووية السلمية بأعلى معايير الأمان الدولية.",
-    descriptionEn: "Egypt's premier nuclear energy development adhering to rigorous international safety standards.",
-    relationship: 'reference_only',
-    scopeAr: "توريد لوحات إرشادية متخصصة ومهمات وقاية للأعمال الإنشائية والمدنية التمهيدية.",
-    scopeEn: "Specialized industrial signage and PPE for preliminary civil and infrastructural works.",
-    image: "/assets/16-solar-street-light-project.webp",
-    publicDisplay: true,
-    verificationNote: "مشروع مرجعي لتوريدات مهمات الأمان الصناعي والسلامة المهنية."
-  },
-  {
-    id: "proj-central-bank",
-    titleAr: "مجمع البنك المركزي المصري بالعاصمة الإدارية",
-    titleEn: "Central Bank of Egypt Complex",
-    locationAr: "حي المال والأعمال، العاصمة الإدارية الجديدة، مصر",
-    locationEn: "Financial District, New Administrative Capital, Egypt",
-    sectorAr: "المباني الحكومية والمصرفية الكبرى",
-    sectorEn: "Government & Financial Headquarter",
-    descriptionAr: "أحد الصروح المعمارية والمالية الكبرى في الحي المالي بالعاصمة الإدارية.",
-    descriptionEn: "Monumental architectural complex in the central business district.",
-    relationship: 'reference_only',
-    scopeAr: "تجهيزات ومهمات سلامة للمقاولين المنفذين للأعمال المدنية والتشطيبات.",
-    scopeEn: "Safety gear and work-zone supplies during interior and exterior civil execution.",
-    image: "/assets/20-quality-and-documentation.webp",
-    publicDisplay: true,
-    verificationNote: "مشروع مرجعي لتوريدات مهمات الأمان الصناعي والسلامة المهنية."
   }
 ];
 

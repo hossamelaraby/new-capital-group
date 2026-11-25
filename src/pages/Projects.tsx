@@ -1,15 +1,24 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { useData } from '../context/DataContext';
-import { MapPin, Shield, CheckCircle, Search, ArrowRight, ArrowLeft, Filter, Building2, HardHat } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { MapPin, Shield, CheckCircle, Search, ArrowRight, ArrowLeft, Filter, Building2, HardHat, X } from 'lucide-react';
+import { Link, useSearchParams } from 'react-router-dom';
+import { MajorClients } from '../components/MajorClients';
 
 export const Projects: React.FC = () => {
   const { lang, projects } = useData();
   const isAr = lang === 'ar';
   const Arrow = isAr ? ArrowLeft : ArrowRight;
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState(searchParams.get('search') || '');
   const [selectedSector, setSelectedSector] = useState<string>('all');
+
+  useEffect(() => {
+    const s = searchParams.get('search');
+    if (s !== null) {
+      setSearchQuery(s);
+    }
+  }, [searchParams]);
 
   const visibleProjects = projects.filter(p => p.publicDisplay);
 
@@ -70,6 +79,11 @@ export const Projects: React.FC = () => {
         </p>
       </div>
 
+      {/* Major Clients & Contractors Banner */}
+      <div className="pt-2">
+        <MajorClients layout="projects" showTitle={true} />
+      </div>
+
       {/* Search and Filters Bar */}
       <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 bg-[#FBFAF6] p-4 rounded-2xl border border-[#DCD3C5] shadow-sm">
         {/* Search Input */}
@@ -78,10 +92,31 @@ export const Projects: React.FC = () => {
           <input
             type="text"
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={(e) => {
+              setSearchQuery(e.target.value);
+              if (searchParams.has('search')) {
+                searchParams.delete('search');
+                setSearchParams(searchParams, { replace: true });
+              }
+            }}
             placeholder={isAr ? 'ابحث باسم المشروع، الموقع، أو نوع مهمات التوريد...' : 'Search by project name, location, or supply items...'}
             className="w-full bg-[#F3F0E9] border border-[#DCD3C5] rounded-xl py-2.5 px-10 text-xs text-[#1F292C] placeholder-[#687174]/70 focus:border-[#123D40] outline-none"
           />
+          {searchQuery && (
+            <button
+              onClick={() => {
+                setSearchQuery('');
+                if (searchParams.has('search')) {
+                  searchParams.delete('search');
+                  setSearchParams(searchParams, { replace: true });
+                }
+              }}
+              className="absolute top-3 left-3 rtl:left-3 rtl:right-auto ltr:right-3 ltr:left-auto p-1 rounded-full text-[#687174] hover:bg-[#DCD3C5]/50 transition-colors"
+              title={isAr ? 'إلغاء البحث' : 'Clear search'}
+            >
+              <X className="w-3.5 h-3.5" />
+            </button>
+          )}
         </div>
 
         {/* Sector Filter Buttons */}
